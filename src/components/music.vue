@@ -1,9 +1,9 @@
 <template>
   <div data-route="music">
     <ul>
-      <li v-for="music in musics">
+      <li v-for="media in mediaLibrary">
         <fs-music
-          :music="music"
+          :media="media"
         ></fs-music>
       </li>
     </ul>
@@ -18,11 +18,32 @@
 
     data () {
       return {
-        musics: [
+        mediaLibrary: [
           {
             source: 'bandcamp',
+            type: 'album',
             album: 'lost-and-found-beats',
             id: '889554299'
+          },
+          {
+            source: 'soundcloud',
+            type: 'album',
+            id: '204932019'
+          },
+          {
+            source: 'soundcloud',
+            type: 'track',
+            id: '252684216'
+          },
+          {
+            source: 'youtube',
+            type: 'video',
+            id: 'KRkRdoL4zoE'
+          },
+          {
+            source: 'youtube',
+            type: 'playlist',
+            id: 'PLqlKMTzU8q8OtrdEFABcHBrFO5ZUyNgr-'
           }
         ]
       }

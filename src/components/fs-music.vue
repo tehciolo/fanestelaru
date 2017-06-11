@@ -1,22 +1,32 @@
 <template>
   <div data-component="fs-music">
-    <iframe style="border: 0; width: 400px; height: 340px;" :src="source" seamless><a :href="link">Lost and found (beats) by Fane Stelaru</a></iframe>
+    <component
+      :is="type"
+      :media="media"
+    ></component>
   </div>  
 </template>
 
 <script>
+  import FsBandcamp from '@/components/fs-bandcamp'
+  import FsSoundcloud from '@/components/fs-soundcloud'
+  import FsYoutube from '@/components/fs-youtube'
+
   export default {
     name: 'fs-music',
 
-    props: ['music'],
+    props: ['media'],
+
+    components: {
+      FsBandcamp,
+      FsSoundcloud,
+      FsYoutube
+    },
 
     computed: {
-      source () {
-        return `https://bandcamp.com/EmbeddedPlayer/album=${this.music.id}/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/`
-      },
-
-      link () {
-        return `http://fanestelaru.bandcamp.com/album/${this.music.album}`
+      type () {
+        // builds a component name by adding the namespace to the value of the source property on the media object
+        return `fs-${this.media.source}`
       }
     }
   }
