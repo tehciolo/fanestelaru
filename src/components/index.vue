@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <div data-route="index">
     <ul>
       <li>
         <router-link to="/music">Music</router-link>

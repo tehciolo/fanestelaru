@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <img src="./assets/logo.png" alt="Fane Stelaru">
       <router-view></router-view>
     </main>
   </div>
@@ -19,6 +16,7 @@ export default {
 <style>
 body {
   margin: 0;
+  background-color: #070A3A;
 }
 
 #app {
@@ -50,5 +48,14 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+
+a {
+  color: antiquewhite;
+}
+
+img {
+  max-width: 100%;
+  height: auto; 
 }
 </style>
