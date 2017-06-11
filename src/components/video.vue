@@ -1,9 +1,9 @@
 <template>
   <div data-route="video">
     <ul>
-      <li v-for="video in videos">
+      <li v-for="media in mediaLibrary">
         <fs-video
-          :video="video"
+          :media="media"
         ></fs-video>
       </li>
     </ul>
@@ -18,9 +18,10 @@
 
     data () {
       return {
-        videos: [
+        mediaLibrary: [
           {
             source: 'youtube',
+            type: 'video',
             id: '3N3BAmesKgY'
           }
         ]

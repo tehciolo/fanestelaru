@@ -1,25 +1,23 @@
 <template>
-  <div data-component="fs-music">
+  <div data-component="fs-soundtrack">
     <component
       :is="type"
       :media="media"
     ></component>
-  </div>  
+  </div>
 </template>
 
 <script>
 import FsBandcamp from '@/components/fs-bandcamp'
-import FsSoundcloud from '@/components/fs-soundcloud'
 import FsYoutube from '@/components/fs-youtube'
 
 export default {
-  name: 'fs-music',
+  name: 'fs-soundtrack',
 
   props: ['media'],
 
   components: {
     FsBandcamp,
-    FsSoundcloud,
     FsYoutube
   },
 

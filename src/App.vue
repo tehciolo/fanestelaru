@@ -1,15 +1,41 @@
 <template>
   <div id="app">
+    <vue-particles
+      color="#dedede"
+      :particleOpacity="0.7"
+      :particlesNumber="200"
+      shapeType="star"
+      :particleSize="2"
+      :lineLinked="false"
+      :moveSpeed="moveSpeed"
+      :hoverEffect="false"
+      :clickEffect="false"
+    ></vue-particles>
     <main>
-      <img src="./assets/logo.png" alt="Fane Stelaru">
-      <router-view></router-view>
-    </main>
+        <img src="./assets/logo.png" alt="Fane Stelaru" @click="moveParticles">
+        <router-view></router-view>
+      </main>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+
+  data () {
+    return {
+      moveSpeed: 0.1
+    }
+  },
+
+  methods: {
+    moveParticles () {
+      this.moveSpeed = 1
+      setTimeout(() => {
+        this.moveSpeed = 0.1
+      }, 1000)
+    }
+  }
 }
 </script>
 
