@@ -1,7 +1,10 @@
 <template>
   <div data-route="music">
     <ul>
-      <li v-for="media in mediaLibrary">
+      <li
+        v-for="media in mediaLibrary"
+        :key="media.id"
+      >
         <fs-music
           :media="media"
         ></fs-music>

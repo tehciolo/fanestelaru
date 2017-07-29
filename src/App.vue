@@ -5,83 +5,102 @@
       :particleOpacity="0.7"
       :particlesNumber="200"
       shapeType="star"
-      :particleSize="2"
+      :particleSize="1"
       :lineLinked="false"
-      :moveSpeed="moveSpeed"
+      :moveSpeed="0.2"
       :hoverEffect="false"
       :clickEffect="false"
     ></vue-particles>
-    <main>
-        <img src="./assets/logo.png" alt="Fane Stelaru" @click="moveParticles">
+
+    <div class="fs-container">
+      <main>
         <router-view></router-view>
       </main>
+
+      <fs-footer></fs-footer>
+    </div>
   </div>
 </template>
 
 <script>
+import FsFooter from '@/components/fs-footer'
+
 export default {
   name: 'app',
 
-  data () {
-    return {
-      moveSpeed: 0.1
-    }
-  },
-
   methods: {
-    moveParticles () {
-      this.moveSpeed = 1
-      setTimeout(() => {
-        this.moveSpeed = 0.1
-      }, 1000)
+    //
+  },
+  components: {
+    FsFooter
+  },
+  computed: {
+    isHomePage () {
+      return this.$route.path === `/`
     }
   }
 }
 </script>
 
 <style>
+:root {
+  --color-cod-gray: rgb(15, 15, 15);
+  /* triadic color scheme */
+  --color-deep-cove: rgb(7, 10, 58); /* primary color */
+  --color-dark-fern: rgb(10, 58, 7);
+  --color-aubergine: rgb(58, 7, 10);
+}
+
+html {
+  background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
+  box-sizing: border-box;
+}
+
+html.on-home-page {
+  background-image: radial-gradient(ellipse at center, var(--color-deep-cove) 0%, var(--color-cod-gray) 100%);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
-  margin: 0;
-  background-color: #070A3A;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: white;
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  position: relative;
+}
+
+#particles-js {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  z-index: 0;
+}
+
+.fs-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  text-align: center;
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #4fc08d;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
+  flex-grow: 1;
+  display: flex;
 }
 
 a {
-  color: antiquewhite;
+  color: white;
+  text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  height: auto; 
+.webfont {
+  font-family: 'Share Tech Mono', monospace;
 }
 </style>
