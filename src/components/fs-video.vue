@@ -1,25 +1,21 @@
 <template>
   <div data-component="fs-video">
-    <iframe
-      :src="source"
-      width="560"
-      height="315"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
+    <fs-youtube
+      :media="media"
+    ></fs-youtube>
   </div>  
 </template>
 
 <script>
+  import FsYoutube from '@/components/fs-youtube'
+
   export default {
     name: 'fs-video',
 
     props: ['media'],
 
-    computed: {
-      source () {
-        return `https://www.youtube.com/embed/${this.media.id}`
-      }
+    components: {
+      FsYoutube
     }
   }
 </script>

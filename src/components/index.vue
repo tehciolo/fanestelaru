@@ -1,6 +1,6 @@
 <template>
   <div data-route="index">
-    <div class="logo-wrapper">
+    <div class="index-logo-wrapper">
       <div class="scaling-svg-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 818.37 783.57" preserveAspectRatio="xMidYMin slice">
           <path fill="none" d="M109.85 572.12s-4.7 8.18-2.96 9.22c1.74 1.04 7.83-1.57 7.83-1.57l75.79-42.48-41.07-26.58-39.59 61.41zM126.9 433.67s-5.57.43-6.17 2.61c-.75 2.69 3.74 5.39 3.74 5.39l9.41 7.36 9.12-17.24-16.1 1.88zM223.28 518.91l188.89-109.59s10.09-5.92 9.04-8.35c-1.04-2.43-14.26 0-14.26 0l-201.96 23.58-34.32 53.24 52.61 41.12z"/>
@@ -16,13 +16,13 @@
 
     <ul class="section__list webfont">
       <li class="section__item">
-        <router-link to="/music">Music</router-link>
+        <router-link to="/music">music</router-link>
       </li>
       <li class="section__item">
-        <router-link to="/video">Video</router-link>
+        <router-link to="/soundtrack">soundtrack</router-link>
       </li>
       <li class="section__item">
-        <router-link to="/soundtrack">Soundtrack</router-link>
+        <router-link to="/video">video</router-link>
       </li>
     </ul>
   </div>
@@ -53,32 +53,17 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
 }
 
-.logo-wrapper {
+.index-logo-wrapper {
   width: 400px;
   max-width: 100%;
-  margin-bottom: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   padding: 0 1rem;
-}
-
-.scaling-svg-container {
-  position: relative; 
-  height: 0; 
-  width: 100%; 
-  padding: 0;
-  padding-bottom: 95.75%; 
-  /* override this inline for aspect ratio other than square */
-}
-
-.scaling-svg-container svg {
-  position: absolute; 
-  height: 100%; 
-  width: 100%; 
-  left: 0; 
-  top: 0;
 }
 
 .section__list {
@@ -128,7 +113,13 @@ export default {
     -0.03em -0.03em 0em var(--color-aubergine),
     -0.04em -0.04em 0em var(--color-aubergine),
     -0.05em -0.05em 0em var(--color-aubergine),
-    -0.06em -0.06em 0em var(--color-aubergine);
+    -0.06em -0.06em 0em var(--color-aubergine),
+    -0.07em -0.07em 0em var(--color-aubergine),
+    -0.08em -0.08em 0em var(--color-aubergine),
+    -0.09em -0.09em 0em var(--color-aubergine),
+    -0.10em -0.10em 0em var(--color-aubergine),
+    -0.11em -0.11em 0em var(--color-aubergine);
+    
 }
 
 .section__item a:hover {
@@ -138,6 +129,11 @@ export default {
     -0.03em -0.03em 0em var(--color-dark-fern),
     -0.04em -0.04em 0em var(--color-dark-fern),
     -0.05em -0.05em 0em var(--color-dark-fern),
-    -0.06em -0.06em 0em var(--color-dark-fern);
+    -0.06em -0.06em 0em var(--color-dark-fern),
+    -0.07em -0.07em 0em var(--color-dark-fern),
+    -0.08em -0.08em 0em var(--color-dark-fern),
+    -0.09em -0.09em 0em var(--color-dark-fern),
+    -0.10em -0.10em 0em var(--color-dark-fern),
+    -0.11em -0.11em 0em var(--color-dark-fern);
 }
 </style>

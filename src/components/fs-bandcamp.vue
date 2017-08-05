@@ -1,12 +1,12 @@
 <template>
   <div data-component="fs-bandcamp">
-    <iframe
-      :src="source"
-      style="border: 0; width: 400px; height: 340px;"
-      seamless
-    >
-      <a :href="link">Lost and found (beats) by Fane Stelaru</a>
-    </iframe>
+    <div class="embed-container">
+      <iframe
+        :src="source"
+        style="border: 0"
+        seamless
+      ></iframe>
+    </div>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
 
   computed: {
     source () {
-      return `https://bandcamp.com/EmbeddedPlayer/album=${this.media.id}/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/`
+      return `https://bandcamp.com/EmbeddedPlayer/album=${this.media.id}/size=large/bgcol=ffffff/linkcol=070A3A/artwork=small/transparent=true/`
     },
 
     link () {
@@ -27,3 +27,23 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .embed-container {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    width: 540px;
+    max-width: 100%;
+  }
+
+  .embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+

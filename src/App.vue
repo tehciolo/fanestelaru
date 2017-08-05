@@ -1,28 +1,21 @@
 <template>
   <div id="app">
-    <vue-particles
-      color="#dedede"
-      :particleOpacity="0.7"
-      :particlesNumber="200"
-      shapeType="star"
-      :particleSize="1"
-      :lineLinked="false"
-      :moveSpeed="0.2"
-      :hoverEffect="false"
-      :clickEffect="false"
-    ></vue-particles>
-
+    <vue-particles color="#dedede" :particleOpacity="0.7" :particlesNumber="200" shapeType="star" :particleSize="1.2" :lineLinked="false" :moveSpeed="0.5" :hoverEffect="false" :clickEffect="false"></vue-particles>
+  
     <div class="fs-container">
+      <fs-header v-if="!isHomePage"></fs-header>
+  
       <main>
         <router-view></router-view>
       </main>
-
+  
       <fs-footer></fs-footer>
     </div>
   </div>
 </template>
 
 <script>
+import FsHeader from '@/components/fs-header'
 import FsFooter from '@/components/fs-footer'
 
 export default {
@@ -32,6 +25,7 @@ export default {
     //
   },
   components: {
+    FsHeader,
     FsFooter
   },
   computed: {
@@ -46,7 +40,8 @@ export default {
 :root {
   --color-cod-gray: rgb(15, 15, 15);
   /* triadic color scheme */
-  --color-deep-cove: rgb(7, 10, 58); /* primary color */
+  --color-deep-cove: rgb(7, 10, 58);
+  /* primary color */
   --color-dark-fern: rgb(10, 58, 7);
   --color-aubergine: rgb(58, 7, 10);
 }
@@ -60,7 +55,9 @@ html.on-home-page {
   background-image: radial-gradient(ellipse at center, var(--color-deep-cove) 0%, var(--color-cod-gray) 100%);
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -93,6 +90,22 @@ body {
 main {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 540px;
+  margin: 1rem auto;
+}
+
+.on-home-page main {
+  width: initial;
+}
+
+.on-music-page main {
+  width: 1200px;
+}
+
+h1 {
+  margin: 0;
 }
 
 a {
@@ -102,5 +115,35 @@ a {
 
 .webfont {
   font-family: 'Share Tech Mono', monospace;
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect( 1px, 1px, 1px, 1px);
+  clip-path: inset( 50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal;
+}
+
+.scaling-svg-container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 95.75%;
+  /* override this inline for aspect ratio other than square */
+}
+
+.scaling-svg-container svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 </style>

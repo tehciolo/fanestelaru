@@ -1,16 +1,25 @@
 <template>
   <div data-component="fs-music">
-    <component
-      :is="type"
-      :media="media"
-    ></component>
+    <h3 v-text="media.albumName"></h3>
+    <div class="album-object">
+      <div class="album-object__media">
+        <img src="https://f4.bcbits.com/img/a2380694859_10.jpg" alt="Raul Alb">
+      </div>
+
+      <div class="album-object__text">
+        Listen on:
+        <ul class="webfont">
+          <li><a href="#">Bandcamp</a></li>
+          <li><a href="#">Soundcloud</a></li>
+          <li><a href="#">Youtube</a></li>
+        </ul>
+      </div>
+    </div>
+    <p v-text="media.description"></p>
   </div>  
 </template>
 
 <script>
-import FsBandcamp from '@/components/fs-bandcamp'
-import FsSoundcloud from '@/components/fs-soundcloud'
-import FsYoutube from '@/components/fs-youtube'
 
 export default {
   name: 'fs-music',
@@ -18,16 +27,31 @@ export default {
   props: ['media'],
 
   components: {
-    FsBandcamp,
-    FsSoundcloud,
-    FsYoutube
+    //
   },
 
   computed: {
-    type () {
-      // builds a component name by adding the namespace to the value of the source property on the media object
-      return `fs-${this.media.source}`
-    }
+
   }
 }
 </script>
+
+<style>
+.album-object {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.album-object__media {
+  flex-basis: 30%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.album-object__media img {
+  max-width: 100%;
+  height: auto;
+}
+</style>
+
