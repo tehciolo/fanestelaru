@@ -44,11 +44,13 @@ export default {
   /* primary color */
   --color-dark-fern: rgb(10, 58, 7);
   --color-aubergine: rgb(58, 7, 10);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 html {
-  background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
   box-sizing: border-box;
+  background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
 }
 
 html.on-home-page {
@@ -101,7 +103,19 @@ main {
 }
 
 .on-music-page main {
-  width: 1200px;
+  width: 400px;
+}
+
+@media (min-width: 820px) {
+  .on-music-page main {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1220px) {
+  .on-music-page main {
+    width: 1200px;
+  }
 }
 
 h1 {
