@@ -2,6 +2,7 @@
   <div data-component="fs-video">
     <fs-youtube
       :media="media"
+      :extended="extended"
     ></fs-youtube>
   </div>  
 </template>
@@ -13,6 +14,12 @@
     name: 'fs-video',
 
     props: ['media'],
+
+    data () {
+      return {
+        extended: true
+      }
+    },
 
     components: {
       FsYoutube

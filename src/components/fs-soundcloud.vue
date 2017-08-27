@@ -1,11 +1,11 @@
 <template>
   <div data-component="fs-soundcloud">
     <div
-      :class="{ 'embed-container--track': media.type === 'track', 'embed-container--album': media.type === 'album' }"
+      :class="{ 'embed-container--track': source.type === 'tracks', 'embed-container--album': source.type === 'playlists' }"
       class="embed-container"
     >
       <iframe
-        :src="source"
+        :src="link"
         scrolling="no"
         frameborder="no"
       ></iframe>
@@ -21,23 +21,13 @@ export default {
 
   computed: {
     source () {
-      return `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/${this.mediaType}/${this.media.id}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false`
+      return this.media.sources.find(entry => {
+        return entry.source === 'soundcloud'
+      })
     },
 
-    mediaType () {
-      if (this.media.type === 'album') {
-        return `playlists`
-      } else if (this.media.type === 'track') {
-        return `tracks`
-      }
-    },
-
-    playerHeight () {
-      if (this.media.type === 'album') {
-        return `450`
-      } else if (this.media.type === 'track') {
-        return `166`
-      }
+    link () {
+      return `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/${this.source.type}/${this.source.id}&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false`
     }
   }
 }

@@ -4,7 +4,7 @@
 
     <ul class="soundtrack__list">
       <li
-        v-for="media in mediaLibrary"
+        v-for="media in library"
         :key="media.id"
         class="soundtrack__item"
       >
@@ -26,19 +26,11 @@ export default {
     FsSoundtrack
   },
 
-  data () {
-    return {
-      mediaLibrary: [
-        {
-          source: 'youtube',
-          type: 'video',
-          id: 'kJlvl2kNk9s',
-          extended: true,
-          title: 'Lost Cats',
-          date: 'July 3, 2017',
-          description: 'Music demo for a game about a cat looking for its way home.'
-        }
-      ]
+  computed: {
+    library () {
+      return this.$root.library.filter(entry => {
+        return entry.sections.indexOf('soundtrack') !== -1
+      })
     }
   }
 }

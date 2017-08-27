@@ -2,7 +2,7 @@
   <div data-component="fs-bandcamp">
     <div class="embed-container">
       <iframe
-        :src="source"
+        :src="link"
         style="border: 0"
         seamless
       ></iframe>
@@ -14,15 +14,17 @@
 export default {
   name: 'fs-bandcamp',
 
-  props: ['media'],
+  props: ['media', 'extended'],
 
   computed: {
     source () {
-      return `https://bandcamp.com/EmbeddedPlayer/album=${this.media.id}/size=large/bgcol=ffffff/linkcol=070A3A/artwork=small/transparent=true/`
+      return this.media.sources.find(entry => {
+        return entry.source === 'bandcamp'
+      })
     },
 
     link () {
-      return `http://fanestelaru.bandcamp.com/album/${this.media.album}`
+      return `https://bandcamp.com/EmbeddedPlayer/album=${this.source.id}/size=large/bgcol=ffffff/linkcol=070A3A/artwork=small/transparent=true/`
     }
   }
 }

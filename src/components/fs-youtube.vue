@@ -1,19 +1,19 @@
 <template>
   <div data-component="fs-youtube">
-    <template v-if="media.extended">
-      <h2 v-text="media.title"></h2>
+    <template v-if="extended">
+      <h2 v-text="media.name"></h2>
       <p v-text="media.date"></p>
     </template>
 
     <div class="embed-container">
       <iframe
-        :src="source"
+        :src="link"
         frameborder="0"
         allowfullscreen
       ></iframe>
     </div>
 
-    <p v-if="media.extended" v-html="media.description"></p>
+    <p v-if="extended" v-html="media.description"></p>
   </div>
 </template>
 
@@ -21,14 +21,20 @@
 export default {
   name: 'fs-youtube',
 
-  props: ['media'],
+  props: ['media', 'extended'],
 
   computed: {
     source () {
-      if (this.media.type === 'playlist') {
-        return `https://www.youtube.com/embed/videoseries?list=${this.media.id}`
-      } else if (this.media.type === 'video') {
-        return `https://www.youtube.com/embed/${this.media.id}`
+      return this.media.sources.find(entry => {
+        return entry.source === 'youtube'
+      })
+    },
+
+    link () {
+      if (this.source.type === 'playlist') {
+        return `https://www.youtube.com/embed/videoseries?list=${this.source.id}`
+      } else if (this.source.type === 'video') {
+        return `https://www.youtube.com/embed/${this.source.id}`
       }
     }
   }

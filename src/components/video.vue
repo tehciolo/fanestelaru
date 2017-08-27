@@ -4,7 +4,7 @@
 
     <ul class="video__list">
       <li
-        v-for="media in mediaLibrary"
+        v-for="media in library"
         :key="media.id"
         class="video__item"
       >
@@ -22,19 +22,11 @@
   export default {
     name: 'video',
 
-    data () {
-      return {
-        mediaLibrary: [
-          {
-            source: 'youtube',
-            type: 'video',
-            id: '3N3BAmesKgY',
-            extended: true,
-            title: 'MegaMirage',
-            date: 'March 13, 2017',
-            description: 'Imagine/Montaj - Octavian Catana<br>Regie - Irina Slate<br>Muzica/Text - Fane Stelaru'
-          }
-        ]
+    computed: {
+      library () {
+        return this.$root.library.filter(entry => {
+          return entry.sections.indexOf('video') !== -1
+        })
       }
     },
 

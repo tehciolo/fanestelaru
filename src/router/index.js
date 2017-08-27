@@ -7,6 +7,7 @@ import Video from '@/components/video'
 import Soundtrack from '@/components/soundtrack'
 import Contact from '@/components/contact'
 import Events from '@/components/events'
+import FsMusicSingle from '@/components/fs-music-single'
 
 Vue.use(Router)
 Vue.use(VueParticles)
@@ -42,6 +43,11 @@ export default new Router({
       path: '/events',
       name: 'events',
       component: Events
+    },
+    {
+      path: '/media/:id',
+      name: 'single',
+      component: FsMusicSingle
     }
   ],
   mode: 'history'
