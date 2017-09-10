@@ -1,5 +1,6 @@
+/* global particlesJS */
+
 import Vue from 'vue'
-import VueParticles from 'vue-particles'
 import Router from 'vue-router'
 import Index from '@/components/index'
 import Music from '@/components/music'
@@ -8,11 +9,11 @@ import Soundtrack from '@/components/soundtrack'
 import Contact from '@/components/contact'
 import Events from '@/components/events'
 import FsMusicSingle from '@/components/fs-music-single'
+import 'particles.js'
 
 Vue.use(Router)
-Vue.use(VueParticles)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -52,3 +53,18 @@ export default new Router({
   ],
   mode: 'history'
 })
+
+router.beforeEach((to, from, next) => {
+  if (window.pJSDom.length > 0) {
+    window.pJSDom[0].pJS.fn.vendors.destroypJS()
+    window['pJSDom'] = []
+  }
+
+  next()
+})
+
+router.afterEach((to, from) => {
+  particlesJS.load('particles', '/static/particles.json')
+})
+
+export default router

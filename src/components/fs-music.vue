@@ -1,5 +1,6 @@
 <template>
   <div data-component="fs-music">
+    <h4 v-text="media.date.year" class="album-date"></h4>
     <h3 v-text="media.name" class="album-title"></h3>
     <div class="album-object">
       <div class="album-object__media">
@@ -78,8 +79,15 @@ export default {
 </script>
 
 <style>
+.album-date {
+  font-weight: normal;
+  margin: 0;
+}
+
 .album-title {
   font-weight: normal;
+  font-size: 24px;
+  margin-top: 0;
 }
 
 .album-object {
@@ -139,10 +147,16 @@ export default {
   padding-left: 1.2rem;
 }
 
+.res-list__link {
+  display: inline-block;
+  vertical-align: top;
+}
+
 .res-list__link:hover::after {
   content: '\2192';
   font-family: initial;
   display: inline-block;
+  vertical-align: top;
   margin-left: 0.5rem;
 }
 </style>

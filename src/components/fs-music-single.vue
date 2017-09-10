@@ -1,7 +1,7 @@
 <template>
   <div data-component="fs-music-single">
-    <h2 v-text="media.name"></h2>
-    <p v-text="media.date"></p>
+    <h2 v-text="media.name" class="title"></h2>
+    <p v-text="date" class="date"></p>
 
     <ul v-if="media.sources.length > 1" class="pill-list">
       <li
@@ -54,6 +54,10 @@
       type () {
         // builds a component name by adding the namespace to the active source
         return `fs-${this.active}`
+      },
+
+      date () {
+        return `${this.media.date.month} ${this.media.date.year}`
       }
     },
 
@@ -69,7 +73,17 @@
   }
 </script>
 
-<style>
+<style scoped>
+.title {
+  font-weight: normal;
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+.date {
+  margin-top: 0;
+}
+
 .pill-list {
   padding: 0;
   margin: 0 0 1rem;
@@ -89,6 +103,7 @@
   padding: .5rem 1rem;
   cursor: pointer;
   border: 1px solid white;
+  transition: all .15s ease-in-out;
 }
 
 .pill-list__button.is-active,

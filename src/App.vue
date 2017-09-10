@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-particles color="#dedede" :particleOpacity="0.7" :particlesNumber="200" shapeType="star" :particleSize="1.2" :lineLinked="false" :moveSpeed="0.5" :hoverEffect="false" :clickEffect="false"></vue-particles>
+    <div id="particles"></div>
   
     <div class="fs-container">
       <fs-header v-if="!isHomePage"></fs-header>
@@ -24,10 +24,12 @@ export default {
   methods: {
     //
   },
+
   components: {
     FsHeader,
     FsFooter
   },
+
   computed: {
     isHomePage () {
       return this.$route.path === `/`
@@ -72,7 +74,7 @@ body {
   position: relative;
 }
 
-#particles-js {
+#particles {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -96,6 +98,8 @@ main {
   max-width: 100%;
   width: 540px;
   margin: 1rem auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .on-home-page main {
@@ -103,18 +107,18 @@ main {
 }
 
 .on-music-page main {
-  width: 400px;
+  width: calc(400px + 2rem);
 }
 
-@media (min-width: 820px) {
+@media (min-width: 852px) {
   .on-music-page main {
-    width: 800px;
+    width: calc(800px + 2rem);
   }
 }
 
-@media (min-width: 1220px) {
+@media (min-width: 1252px) {
   .on-music-page main {
-    width: 1200px;
+    width: calc(1200px + 2rem);
   }
 }
 

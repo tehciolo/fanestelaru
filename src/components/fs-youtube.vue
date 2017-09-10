@@ -1,8 +1,8 @@
 <template>
   <div data-component="fs-youtube">
     <template v-if="extended">
-      <h2 v-text="media.name"></h2>
-      <p v-text="media.date"></p>
+      <h2 v-text="media.name" class="title"></h2>
+      <p v-text="date" class="date"></p>
     </template>
 
     <div class="embed-container">
@@ -36,12 +36,26 @@ export default {
       } else if (this.source.type === 'video') {
         return `https://www.youtube.com/embed/${this.source.id}`
       }
+    },
+
+    date () {
+      return `${this.media.date.month} ${this.media.date.year}`
     }
   }
 }
 </script>
 
 <style scoped>
+  .title {
+    font-weight: normal;
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
+
+  .date {
+    margin-top: 0;
+  }
+
   .embed-container {
     position: relative;
     padding-bottom: 56.25%;

@@ -28,7 +28,7 @@
           :key="social.name"
           class="social__item"
         >
-          <a :href="social.link">
+          <a :href="social.link" target="_blank">
             <svg
               :class="social.class"
               class="icon"

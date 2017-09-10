@@ -13,9 +13,29 @@ new Vue({
     library: [
       {
         id: '0',
+        name: 'Nu te recunosc',
+        description: 'Theme-song-ul pentru spectacolul 3 Despartiri in regia Irina Slate',
+        date: {
+          year: 2017,
+          month: 'August'
+        },
+        sections: ['soundtrack'],
+        sources: [
+          {
+            source: 'youtube',
+            id: 'KRkRdoL4zoE',
+            type: 'video'
+          }
+        ]
+      },
+      {
+        id: '1',
         name: 'MegaMirage',
         description: 'Imagine/Montaj - Octavian Catana<br>Regie - Irina Slate<br>Muzica/Text - Fane Stelaru',
-        date: 'July 2017',
+        date: {
+          year: 2017,
+          month: 'July'
+        },
         sections: ['music', 'video'],
         sources: [
           {
@@ -32,10 +52,13 @@ new Vue({
         ]
       },
       {
-        id: '1',
+        id: '2',
         name: 'Lost cats',
         description: 'Music demo for a game about a cat looking for its way home.',
-        date: 'July 2017',
+        date: {
+          year: 2017,
+          month: 'July'
+        },
         sections: ['soundtrack'],
         sources: [
           {
@@ -46,10 +69,13 @@ new Vue({
         ]
       },
       {
-        id: '2',
+        id: '3',
         name: 'Lost and found (Beats)',
         description: 'Lots of beats get lost in the process.',
-        date: 'April 2017',
+        date: {
+          year: 2017,
+          month: 'April'
+        },
         sections: ['music'],
         sources: [
           {
@@ -61,10 +87,13 @@ new Vue({
         ]
       },
       {
-        id: '3',
+        id: '4',
         name: 'Raul alb (Instrumentals)',
         description: '',
-        date: 'December 2016',
+        date: {
+          year: 2016,
+          month: 'December'
+        },
         sections: ['music'],
         sources: [
           {
@@ -76,10 +105,13 @@ new Vue({
         ]
       },
       {
-        id: '4',
+        id: '5',
         name: 'Raul alb',
         description: 'Dreams of a deep winter night',
-        date: 'March 2016',
+        date: {
+          year: 2016,
+          month: 'March'
+        },
         sections: ['music'],
         sources: [
           {
@@ -103,10 +135,13 @@ new Vue({
         ]
       },
       {
-        id: '5',
+        id: '6',
         name: '19C0sm0s',
         description: 'Voce/Text - Fane Stelaru<br>Instrumentale - Fane Stelaru<br>Mix/Master - Fane Stelaru',
-        date: 'June 2015',
+        date: {
+          year: 2015,
+          month: 'June'
+        },
         sections: ['music'],
         sources: [
           {
@@ -130,10 +165,13 @@ new Vue({
         ]
       },
       {
-        id: '6',
+        id: '7',
         name: 'Nu toate noptile se pierd',
         description: 'Instrumental/Mix/Master: Citizen X<br>Voce/Text : Fane Stelaru<br>Coperta: Octavian Catana',
-        date: 'April 2015',
+        date: {
+          year: 2015,
+          month: 'April'
+        },
         sections: ['music'],
         sources: [
           {
@@ -151,10 +189,13 @@ new Vue({
         ]
       },
       {
-        id: '7',
+        id: '8',
         name: 'Planeta MaiMultelor',
         description: 'Voce/Versuri - Fane Stelaru<br>Intrumental - Fane Stelaru & Eugen Iustin<br>Mix/Master - Eugen Iustin',
-        date: 'June 2014',
+        date: {
+          year: 2014,
+          month: 'June'
+        },
         sections: ['music'],
         sources: [
           {

@@ -56,8 +56,12 @@
 
 .music__item {
   flex-basis: 400px;
-  padding: 1.5rem;
-  /* margin-top: 1rem;
-  margin-bottom: 1rem; */
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 852px) {
+  .music__item {
+    padding: 1.5rem;
+  }
 }
 </style>
