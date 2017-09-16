@@ -59,11 +59,19 @@ export default {
 }
 
 .index-logo-wrapper {
-  width: 400px;
+  width: 240px;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
   max-width: 100%;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
   padding: 0 1rem;
+}
+
+@media (min-width: 480px) {
+  .index-logo-wrapper {
+    width: 400px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
 }
 
 .section__list {
