@@ -1,6 +1,9 @@
 <template>
   <div data-component="fs-music">
-    <h4 v-text="media.date.year" class="album-date"></h4>
+    <h4  class="album-date">
+      <span v-text="media.date.year"></span>,
+      <span v-text="media.date.month"></span>
+    </h4>
     <h3 v-text="media.name" class="album-title"></h3>
     <div class="album-object">
       <div class="album-object__media">
@@ -23,7 +26,7 @@
       </div>
     </div>
     <p v-html="media.description"></p>
-  </div>  
+  </div>
 </template>
 
 <script>

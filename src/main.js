@@ -12,6 +12,23 @@ new Vue({
   data: {
     library: [
       {
+        id: '-1',
+        name: 'SamuraiJack vs Shinobi (Sound remake)',
+        description: 'Soundtrack demo',
+        date: {
+          year: 2017,
+          month: 'September'
+        },
+        sections: ['soundtrack'],
+        sources: [
+          {
+            source: 'youtube',
+            id: 'DOOX76ebtZk',
+            type: 'video'
+          }
+        ]
+      },
+      {
         id: '0',
         name: 'Nu te recunosc',
         description: 'Theme-song-ul pentru spectacolul 3 Despartiri in regia Irina Slate',
@@ -30,11 +47,46 @@ new Vue({
       },
       {
         id: '1',
-        name: 'MegaMirage',
-        description: 'Imagine/Montaj - Octavian Catana<br>Regie - Irina Slate<br>Muzica/Text - Fane Stelaru',
+        name: 'Lost cats',
+        description: 'Music demo for a game about a cat looking for its way home.',
         date: {
           year: 2017,
           month: 'July'
+        },
+        sections: ['soundtrack'],
+        sources: [
+          {
+            source: 'youtube',
+            id: 'kJlvl2kNk9s',
+            type: 'video'
+          }
+        ]
+      },
+      {
+        id: '2',
+        name: 'Lost and found (Beats)',
+        description: 'Instrumental: FaneStelaru<br>Mix/Master: FaneStelaru',
+        date: {
+          year: 2017,
+          month: 'April'
+        },
+        sections: ['music'],
+        sources: [
+          {
+            source: 'bandcamp',
+            id: '889554299',
+            cover: 'lost-and-found-beats',
+            slug: 'lost-and-found-beats'
+          }
+        ]
+      },
+      {
+        id: '3',
+        name: 'MegaMirage',
+        description: 'Muzica/Text: FaneStelaru<br>Imagine/Montaj: Octavian Catana<br>Regie: Irina Slate',
+        date: {
+          year: 2017,
+          month: 'March'
         },
         sections: ['music', 'video'],
         sources: [
@@ -52,47 +104,12 @@ new Vue({
         ]
       },
       {
-        id: '2',
-        name: 'Lost cats',
-        description: 'Music demo for a game about a cat looking for its way home.',
-        date: {
-          year: 2017,
-          month: 'July'
-        },
-        sections: ['soundtrack'],
-        sources: [
-          {
-            source: 'youtube',
-            id: 'kJlvl2kNk9s',
-            type: 'video'
-          }
-        ]
-      },
-      {
-        id: '3',
-        name: 'Lost and found (Beats)',
-        description: 'Lots of beats get lost in the process.',
-        date: {
-          year: 2017,
-          month: 'April'
-        },
-        sections: ['music'],
-        sources: [
-          {
-            source: 'bandcamp',
-            id: '889554299',
-            cover: 'lost-and-found-beats',
-            slug: 'lost-and-found-beats'
-          }
-        ]
-      },
-      {
         id: '4',
         name: 'Raul alb (Instrumentals)',
-        description: '',
+        description: 'Instrumental: FaneStelaru<br>Mix/Master: FaneStelaru',
         date: {
           year: 2016,
-          month: 'December'
+          month: 'November'
         },
         sections: ['music'],
         sources: [
@@ -107,7 +124,7 @@ new Vue({
       {
         id: '5',
         name: 'Raul alb',
-        description: 'Dreams of a deep winter night',
+        description: 'Text/Voce: FaneStelaru<br>Instrumental: FaneStelaru<br>Mix/Master: FaneStelaru',
         date: {
           year: 2016,
           month: 'March'
@@ -137,7 +154,7 @@ new Vue({
       {
         id: '6',
         name: '19C0sm0s',
-        description: 'Voce/Text - Fane Stelaru<br>Instrumentale - Fane Stelaru<br>Mix/Master - Fane Stelaru',
+        description: 'Text/Voce: FaneStelaru<br>Instrumental: FaneStelaru',
         date: {
           year: 2015,
           month: 'June'
@@ -167,7 +184,7 @@ new Vue({
       {
         id: '7',
         name: 'Nu toate noptile se pierd',
-        description: 'Instrumental/Mix/Master: Citizen X<br>Voce/Text : Fane Stelaru<br>Coperta: Octavian Catana',
+        description: 'Text/Voce: FaneStelaru<br>Instrumentale: Citizen X',
         date: {
           year: 2015,
           month: 'April'
@@ -191,10 +208,10 @@ new Vue({
       {
         id: '8',
         name: 'Planeta MaiMultelor',
-        description: 'Voce/Versuri - Fane Stelaru<br>Intrumental - Fane Stelaru & Eugen Iustin<br>Mix/Master - Eugen Iustin',
+        description: 'Text/Voce: FaneStelaru<br>Instrumentale: FaneStelaru, EugenIustin',
         date: {
           year: 2014,
-          month: 'June'
+          month: 'March'
         },
         sections: ['music'],
         sources: [
