@@ -7,18 +7,22 @@
 
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           <div style="position: absolute; width: 0; height: 0;" aria-hidden="true"><input type="text" name="b_37a8e560fa90ccef3effc47b5_7618c4860c" tabindex="-1" value="" style="position: absolute; left: -5000px; width: 0; height: 0;"></div>
-          
+
           <input type="submit" value="subscribe" name="subscribe" id="mc-embedded-subscribe" class="subscriber__button">
       </form>
       <!--End mc_embed_signup-->
-      
+
       &middot;
-      
+
       <router-link to="/events">events</router-link>
 
       &middot;
-      
+
       <router-link to="/contact">contact</router-link>
+
+      &middot;
+
+      <a href="https://fanestelaru.bandcamp.com/" class="buy-link" target="_blank">buy now</a>
 
       &middot;
 
@@ -82,7 +86,7 @@ export default {
 
 .subscriber__input:focus {
   outline-offset: 0;
-  outline: 3px solid var(--color-dark-fern); 
+  outline: 3px solid var(--color-dark-fern);
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -120,5 +124,22 @@ export default {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
+}
+
+.buy-link {
+  border: 1px solid currentColor;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 6px;
+}
+
+.buy-link:hover,
+.buy-link:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 .8em var(--color-dark-fern);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
 }
 </style>
