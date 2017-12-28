@@ -2,6 +2,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
+import Intro from '@/components/intro'
 import Index from '@/components/index'
 import Music from '@/components/music'
 import Video from '@/components/video'
@@ -17,6 +18,11 @@ const router = new Router({
   routes: [
     {
       path: '/',
+      name: 'intro',
+      component: Intro
+    },
+    {
+      path: '/index',
       name: 'index',
       component: Index
     },
