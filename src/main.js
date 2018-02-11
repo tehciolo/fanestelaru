@@ -12,6 +12,24 @@ new Vue({
   data: {
     library: [
       {
+        id: '-2',
+        name: 'Strada Hologramelor',
+        description: '',
+        date: {
+          year: 2018,
+          month: 'January'
+        },
+        sections: ['music'],
+        sources: [
+          {
+            source: 'bandcamp',
+            id: '1741218739',
+            cover: 'strada-hologramelor',
+            slug: 'strada-hologramelor'
+          }
+        ]
+      },
+      {
         id: '-1',
         name: 'SamuraiJack vs Shinobi (Sound remake)',
         description: 'Soundtrack demo',

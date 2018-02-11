@@ -1,15 +1,15 @@
 <template>
     <div data-route="intro">
         <div class="intro-buttons webfont">
-            <button type="button" disabled>buy</button>
+            <a href="https://fanestelaru.bandcamp.com/album/strada-hologramelor" target="_blank">buy now</a>
 
             &middot;
 
-            <button type="button" disabled>listen</button>
+            <router-link to="/media/-2">listen</router-link>
         </div>
 
         <figure class="intro-image">
-            <img src="/static/img/intro/stradahologramelor.jpg" alt="Album cover for StradaHologramelor">
+            <img src="/static/img/intro/stradahologramelor.jpg" alt="Album cover for Strada Hologramelor">
         </figure>
 
         <router-link to="/index" class="go-to-index webfont">continue to website</router-link>
@@ -54,17 +54,19 @@ export default {
     margin-bottom: 1rem;
 }
 
-.intro-buttons button {
-    border: 1px solid currentColor;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    border-radius: 6px;
-    background-color: transparent;
-    color: gray;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1.5;
-    cursor: not-allowed;
+.intro-buttons a {
+  border: 1px solid currentColor;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 6px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.intro-buttons a:hover,
+.intro-buttons a:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 .8em var(--color-dark-fern);
 }
 </style>
 
