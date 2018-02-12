@@ -57,6 +57,16 @@ export default {
           name: 'facebook',
           link: 'https://www.facebook.com/FaneStelaru0/',
           class: 'icon-facebook-with-circle'
+        },
+        {
+          name: 'twitter',
+          link: 'https://twitter.com/FaneStelaru',
+          class: 'twitter-with-circle'
+        },
+        {
+          name: 'instagram',
+          link: 'https://www.instagram.com/fane.stelaru/',
+          class: 'instagram-with-circle'
         }
       ]
     }
@@ -114,6 +124,15 @@ export default {
 .social__list {
   padding: 0;
   list-style-type: none;
+}
+
+.social__item {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.social__item:not(:last-child) {
+  margin-right: 0.5rem;
 }
 
 .icon {
