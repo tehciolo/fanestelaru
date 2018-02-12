@@ -12,6 +12,24 @@ new Vue({
   data: {
     library: [
       {
+        id: '-3',
+        name: 'Strada Hologramelor (Instrumentals)',
+        description: '',
+        date: {
+          year: 2018,
+          month: 'February'
+        },
+        sections: ['music'],
+        sources: [
+          {
+            source: 'bandcamp',
+            id: '1949589814',
+            cover: 'strada-hologramelor',
+            slug: 'strada-hologramelor-instrumentals'
+          }
+        ]
+      },
+      {
         id: '-2',
         name: 'Strada Hologramelor',
         description: '',
@@ -26,6 +44,18 @@ new Vue({
             id: '1741218739',
             cover: 'strada-hologramelor',
             slug: 'strada-hologramelor'
+          },
+          {
+            source: 'soundcloud',
+            id: '413964044',
+            type: 'playlists',
+            slug: 'strada-hologramelor'
+          },
+          {
+            source: 'youtube',
+            id: 'PLqlKMTzU8q8NH9PM1qQlAKHhieRDhT2jl',
+            type: 'playlist',
+            startId: 'AJM0bADbkfY'
           }
         ]
       },
