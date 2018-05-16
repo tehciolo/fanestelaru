@@ -1,14 +1,18 @@
 <template>
   <div data-route="events">
-    <p>
-      Coming soon...
-    </p>
+    <fs-event></fs-event>
   </div>
 </template>
 
 <script>
+import FsEvent from '@/components/fs-event'
+
 export default {
-  name: 'events'
+  name: 'events',
+
+  components: {
+    FsEvent
+  }
 }
 </script>
 

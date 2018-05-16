@@ -9,7 +9,9 @@
         </div>
 
         <figure class="intro-image">
-            <img src="/static/img/intro/stradahologramelor.jpg" alt="Album cover for Strada Hologramelor">
+            <a href="https://www.facebook.com/events/1784830905146793/">
+                <img src="/static/img/events/concert-23-march.jpg" alt="Concert poster for Strada Hologramelor, 23rd of March event">
+            </a>
         </figure>
 
         <router-link to="/index" class="go-to-index webfont">continue to website</router-link>
