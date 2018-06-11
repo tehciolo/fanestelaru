@@ -12,6 +12,23 @@ new Vue({
   data: {
     library: [
       {
+        id: '-4',
+        name: 'Doua Dube (Cover B.U.G. Mafia)',
+        description: 'Muzica - Fane Stelaru<br>Text(cover) - B.U.G. Mafia',
+        date: {
+          year: 2018,
+          month: 'May'
+        },
+        sections: ['video'],
+        sources: [
+          {
+            source: 'youtube',
+            id: '8rFWJnlW6Xs',
+            type: 'video'
+          }
+        ]
+      },
+      {
         id: '-3',
         name: 'Strada Hologramelor (Instrumentals)',
         description: '',
