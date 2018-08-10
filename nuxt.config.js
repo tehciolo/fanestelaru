@@ -27,6 +27,12 @@ module.exports = {
       '@nuxtjs/pwa',
   ],
   /*
+  ** Use these plugins
+  */
+  plugins: [
+    { src: '~/plugins/particles', ssr: false }
+  ],
+  /*
   ** Customize the progress bar color
   */
   loading: { color: '#4DBA87' },
