@@ -1,4 +1,4 @@
-/* eslint-disable */
+import 'particles.js';
 
 export default ({ app }) => {
   /*
@@ -9,11 +9,14 @@ export default ({ app }) => {
   ** Every time the route changes (fired on initialization too)
   */
   app.router.beforeEach((to, from, next) => {
-    console.log('before', from);
+    if (window.pJSDom.length > 0) {
+      window.pJSDom[0].pJS.fn.vendors.destroypJS();
+      window['pJSDom'] = [];
+    }
 
     next();
   });
   app.router.afterEach((to, from) => {
-    console.log('after', to);
+    particlesJS.load('particles', '/particles.json');
   });
 }

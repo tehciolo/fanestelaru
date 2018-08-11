@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.0.8",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "particles.js": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
