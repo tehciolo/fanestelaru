@@ -1,17 +1,27 @@
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: 'fanestelaru',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Nuxt.js project'
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico'
+    }]
   },
   manifest: {
     "name": "fanestelaru.com",
@@ -20,30 +30,39 @@ module.exports = {
     "background_color": "#000000",
     "theme_color": "#4DBA87",
   },
+  css: [
+    'normalize.css'
+  ],
   /*
-  ** Use these modules
-  */
+   ** Use these modules
+   */
   modules: [
-      '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
   ],
   /*
-  ** Use these plugins
-  */
-  plugins: [
-    { src: '~/plugins/particles', ssr: false }
-  ],
+   ** Use these plugins
+   */
+  plugins: [{
+    src: '~/plugins/particles',
+    ssr: false
+  }],
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: 'white' },
+   ** Customize the progress bar color
+   */
+  loading: {
+    color: 'white'
+  },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
+     ** Run ESLint on save
+     */
+    extend(config, {
+      isDev,
+      isClient
+    }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -55,4 +74,3 @@ module.exports = {
     }
   }
 }
-
