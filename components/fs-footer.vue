@@ -14,11 +14,11 @@
 
       &middot;
 
-      <router-link to="/events">events</router-link>
+      <nuxt-link to="/events">events</nuxt-link>
 
       &middot;
 
-      <router-link to="/contact">contact</router-link>
+      <nuxt-link to="/contact">contact</nuxt-link>
 
       &middot;
 
@@ -75,6 +75,14 @@ export default {
 </script>
 
 <style>
+:root {
+  --color-cod-gray: rgb(15, 15, 15);
+  /* triadic color scheme */
+  --color-deep-cove: rgb(7, 10, 58);
+  /* primary color */
+  --color-dark-fern: rgb(10, 58, 7);
+  --color-aubergine: rgb(58, 7, 10);
+}
 .fs-footer {
   padding: 0.5em;
   text-align: center;

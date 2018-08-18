@@ -31,7 +31,7 @@ module.exports = {
     "theme_color": "#4DBA87",
   },
   css: [
-    'normalize.css'
+    'normalize.css',
   ],
   /*
    ** Use these modules
