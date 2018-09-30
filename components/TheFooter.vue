@@ -2,13 +2,46 @@
   <div data-component="fs-footer">
     <footer class="fs-footer webfont">
       <!-- Begin MailChimp Signup Form -->
-      <form class="subscriber" action="//fanestelaru.us16.list-manage.com/subscribe/post?u=37a8e560fa90ccef3effc47b5&amp;id=7618c4860c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-          <input type="email" value="" name="EMAIL" class="subscriber__input" placeholder="email address" autocomplete="off" required>
+      <form
+        id="mc-embedded-subscribe-form"
+        class="subscriber"
+        action="//fanestelaru.us16.list-manage.com/subscribe/post?u=37a8e560fa90ccef3effc47b5&amp;id=7618c4860c"
+        method="post"
+        name="mc-embedded-subscribe-form"
+        target="_blank"
+        novalidate
+      >
+        <input
+          type="email"
+          value=""
+          name="EMAIL"
+          class="subscriber__input"
+          placeholder="email address"
+          autocomplete="off"
+          required
+        >
 
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; width: 0; height: 0;" aria-hidden="true"><input type="text" name="b_37a8e560fa90ccef3effc47b5_7618c4860c" tabindex="-1" value="" style="position: absolute; left: -5000px; width: 0; height: 0;"></div>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div
+          style="position: absolute; width: 0; height: 0;"
+          aria-hidden="true"
+        >
+          <input
+            type="text"
+            name="b_37a8e560fa90ccef3effc47b5_7618c4860c"
+            tabindex="-1"
+            value=""
+            style="position: absolute; left: -5000px; width: 0; height: 0;"
+          >
+        </div>
 
-          <input type="submit" value="subscribe" name="subscribe" id="mc-embedded-subscribe" class="subscriber__button">
+        <input
+          id="mc-embedded-subscribe"
+          type="submit"
+          value="subscribe"
+          name="subscribe"
+          class="subscriber__button"
+        >
       </form>
       <!--End mc_embed_signup-->
 
@@ -22,7 +55,13 @@
 
       &middot;
 
-      <a href="https://fanestelaru.bandcamp.com/" class="buy-link" target="_blank">buy now</a>
+      <a
+        href="https://fanestelaru.bandcamp.com/"
+        class="buy-link"
+        target="_blank"
+      >
+        buy now
+      </a>
 
       &middot;
 
@@ -32,12 +71,15 @@
           :key="social.name"
           class="social__item"
         >
-          <a :href="social.link" target="_blank">
+          <a
+            :href="social.link"
+            target="_blank"
+          >
             <svg
               :class="social.class"
               class="icon"
             >
-                <use :xlink:href="`#${social.class}`"></use>
+              <use :xlink:href="`#${social.class}`"></use>
             </svg>
           </a>
         </li>
@@ -48,7 +90,7 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: 'TheFooter',
 
   data () {
     return {
@@ -123,6 +165,7 @@ export default {
 .subscriber__button {
   border: none;
   padding: 0;
+  margin-left: .5rem;
   background-color: transparent;
   color: white;
   font-family: inherit;

@@ -8,19 +8,19 @@
         :key="media.id"
         class="music__item"
       >
-        <!-- <fs-music
+        <!-- <FsMusic
           :media="media"
-        ></fs-music> -->
+        ></FsMusic> -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-// import FsMusic from '@/components/fs-music'
+// import FsMusic from '@/components/FsMusic'
 
 export default {
-  name: 'music',
+  name: 'Music',
   computed: {
     library () {
       return this.$root.library.filter(entry => {

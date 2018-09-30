@@ -8,18 +8,18 @@
         :key="media.id"
         class="video__item"
       >
-        <!-- <fs-video
+        <!-- <FsVideo
           :media="media"
-        ></fs-video> -->
+        ></FsVideo> -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-  // import FsVideo from '@/components/fs-video'
+  // import FsVideo from '@/components/FsVideo'
   export default {
-    name: 'video',
+    name: 'Video',
     computed: {
       library () {
         return this.$root.library.filter(entry => {

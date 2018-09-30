@@ -3,26 +3,26 @@
     <div id="particles"></div>
 
     <div class="fs-container">
-      <fs-header v-if="!isHomePage"></fs-header>
+      <TheHeader v-if="!isHomePage"/>
 
       <main>
         <nuxt/>
       </main>
 
-      <fs-footer></fs-footer>
+      <TheFooter/>
     </div>
   </div>
 </template>
 
 <script>
-import FsHeader from '~/components/fs-header'
-import FsFooter from '~/components/fs-footer'
+import TheHeader from '~/components/TheHeader'
+import TheFooter from '~/components/TheFooter'
 
 export default {
-  name: 'layout',
+  name: 'Layout',
   components: {
-    FsHeader,
-    FsFooter
+    TheHeader,
+    TheFooter
   },
   computed: {
     isHomePage () {

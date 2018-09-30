@@ -1,12 +1,12 @@
 <template>
   <div>
-    test
+    contact info
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SoundDesign'
+  name: 'Contact'
 }
 </script>
 
