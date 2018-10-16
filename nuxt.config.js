@@ -1,4 +1,7 @@
 module.exports = {
+  router: {
+    middleware: 'check-auth'
+  },
   /*
    ** Headers of the page
    */
@@ -72,5 +75,12 @@ module.exports = {
         })
       }
     }
+  },
+  /*
+  ** Environement variables
+  */
+  env: {
+    AUTH0_CLIENT_ID: '',
+    AUTH0_CLIENT_DOMAIN: ''
   }
 }
