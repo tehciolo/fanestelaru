@@ -1,55 +1,144 @@
 <template>
   <div>
-    <nuxt />
+    <div id="particles" />
+
+    <div class="fs-container">
+      <TheHeader v-if="!isHomePage" />
+
+      <main>
+        <nuxt />
+      </main>
+
+      <TheFooter />
+    </div>
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import TheHeader from '~/components/TheHeader'
+import TheFooter from '~/components/TheFooter'
 
+export default {
+  name: 'Layout',
+
+  components: {
+    TheHeader,
+    TheFooter
+  },
+  computed: {
+    isHomePage () {
+      return this.$route.path === `/`
+    }
+  }
+}
+</script>
+
+<style>
+:root {
+  --color-cod-gray: rgb(15, 15, 15);
+  /* triadic color scheme */
+  --color-deep-cove: rgb(7, 10, 58);
+  /* primary color */
+  --color-dark-fern: rgb(10, 58, 7);
+  --color-aubergine: rgb(58, 7, 10);
+  font-size: 16px;
+  line-height: 1.5;
+}
+html {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
+}
+html.on-home-page {
+  background-image: radial-gradient(ellipse at center, var(--color-deep-cove) 0%, var(--color-cod-gray) 100%);
+}
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: white;
+}
+#app {
+  position: relative;
+}
+#particles {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  z-index: 0;
+}
+.fs-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 540px;
+  margin: 1rem auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+.on-home-page main {
+  width: initial;
+}
+.on-music-page main {
+  width: calc(400px + 2rem);
+}
+@media (min-width: 852px) {
+  .on-music-page main {
+    width: calc(800px + 2rem);
+  }
+}
+@media (min-width: 1252px) {
+  .on-music-page main {
+    width: calc(1200px + 2rem);
+  }
+}
+h1 {
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+a {
+  color: white;
   text-decoration: none;
-  padding: 10px 30px;
 }
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.webfont {
+  font-family: 'Share Tech Mono', monospace;
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.screen-reader-text {
+  border: 0;
+  clip: rect( 1px, 1px, 1px, 1px);
+  clip-path: inset( 50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal;
 }
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.scaling-svg-container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  padding-bottom: 95.75%;
+  /* override this inline for aspect ratio other than square */
+}
+.scaling-svg-container svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 </style>
