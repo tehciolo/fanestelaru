@@ -27,24 +27,32 @@ export default {
 
   computed: {
     library () {
-      return this.$root.library.filter((entry) => {
-        return entry.sections.includes('music')
-      })
+      // return this.$root.library.filter((entry) => {
+      //   return entry.sections.includes('music')
+      // })
+      return []
     }
-  },
+  }
   // components: {
   //   FsMusic
   // },
-  beforeMount () {
-    document.getElementsByTagName('html')[0].classList.add('on-music-page')
-  },
-  destroyed () {
-    document.getElementsByTagName('html')[0].classList.remove('on-music-page')
-  }
 }
 </script>
 
-<style>
+<style scoped>
+[data-route="music"] {
+  width: calc(400px + 2rem);
+}
+@media (min-width: 852px) {
+  [data-route="music"] {
+    width: calc(800px + 2rem);
+  }
+}
+@media (min-width: 1252px) {
+  [data-route="music"] {
+    width: calc(1200px + 2rem);
+  }
+}
 .music__list {
   padding: 0;
   margin: 0;
