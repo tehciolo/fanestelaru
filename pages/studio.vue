@@ -14,6 +14,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  layout: 'studio',
   middleware: 'authenticated',
   computed: mapGetters(['loggedUser'])
 }

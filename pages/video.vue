@@ -27,9 +27,10 @@ export default {
 
   computed: {
     library () {
-      return this.$root.library.filter((entry) => {
-        return entry.sections.includes('video')
-      })
+      // return this.$root.library.filter((entry) => {
+      //   return entry.sections.includes('video')
+      // })
+      return []
     }
   }
   // components: {

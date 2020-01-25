@@ -3,8 +3,6 @@
     <div id="particles" />
 
     <div class="fs-container">
-      <TheHeader />
-
       <main>
         <nuxt />
       </main>
@@ -15,14 +13,12 @@
 </template>
 
 <script>
-import TheHeader from '~/components/TheHeader'
 // import TheFooter from '~/components/TheFooter'
 
 export default {
-  name: 'Layout',
+  name: 'Landing',
 
   components: {
-    TheHeader
     // TheFooter
   }
 }
@@ -40,9 +36,10 @@ export default {
   font-size: 16px;
   line-height: 1.5;
 }
+
 html {
   box-sizing: border-box;
-  background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
+  background-image: radial-gradient(ellipse at center, var(--color-deep-cove) 0%, var(--color-cod-gray) 100%);
 }
 
 *,
@@ -50,6 +47,7 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: white;
@@ -65,6 +63,7 @@ body {
   left: 5px;
   z-index: 0;
 }
+
 .fs-container {
   position: relative;
   z-index: 1;
@@ -72,16 +71,18 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 main {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  width: 540px;
+  width: initial;
   margin: 1rem auto;
   padding-right: 1rem;
   padding-left: 1rem;
 }
+
 h1 {
   margin: 0;
 }
