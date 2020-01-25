@@ -1,16 +1,18 @@
-import Vuex from 'vuex'
-import state from '@/store/state'
-import getters from '@/store/getters'
-import mutations from '@/store/mutations'
-import actions from '@/store/actions'
+export const state = () => ({
+  user: null
+})
 
-const createStore = () => {
-  return new Vuex.Store({
-    state,
-    getters,
-    mutations,
-    actions
-  })
+export const getters = {
+  isAuthenticated (state) {
+    return !!state.user
+  },
+  loggedUser (state) {
+    return state.user
+  }
 }
 
-export default createStore
+export const mutations = {
+  setUser (state, user) {
+    state.user = user || null
+  }
+}
