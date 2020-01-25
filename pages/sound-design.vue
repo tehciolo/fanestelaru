@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'SoundDesign'
-}
+  name: 'SoundDesign',
+};
 </script>
 
 <style>

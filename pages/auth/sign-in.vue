@@ -6,8 +6,8 @@
 export default {
   middleware: 'anonymous',
   mounted () {
-    const showLogin = require('~/utils/lock').showLogin
-    showLogin('auth0-lock')
-  }
-}
+    const showLogin = require('~/utils/lock').showLogin;
+    showLogin('auth0-lock');
+  },
+};
 </script>

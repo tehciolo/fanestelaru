@@ -30,13 +30,13 @@ export default {
       // return this.$root.library.filter((entry) => {
       //   return entry.sections.includes('video')
       // })
-      return []
-    }
-  }
+      return [];
+    },
+  },
   // components: {
   //   FsVideo
   // }
-}
+};
 </script>
 
 <style>

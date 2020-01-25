@@ -43,13 +43,13 @@
 </template>
 
 <script>
-import MailChimpForm from '@/components/MailChimpForm.vue'
+import MailChimpForm from '@/components/MailChimpForm.vue';
 
 export default {
   name: 'TheFooter',
 
   components: {
-    MailChimpForm
+    MailChimpForm,
   },
 
   data () {
@@ -58,22 +58,22 @@ export default {
         {
           name: 'facebook',
           link: 'https://www.facebook.com/FaneStelaru0/',
-          class: 'icon-facebook-with-circle'
+          class: 'icon-facebook-with-circle',
         },
         {
           name: 'twitter',
           link: 'https://twitter.com/FaneStelaru',
-          class: 'twitter-with-circle'
+          class: 'twitter-with-circle',
         },
         {
           name: 'instagram',
           link: 'https://www.instagram.com/fane.stelaru/',
-          class: 'instagram-with-circle'
-        }
-      ]
-    }
-  }
-}
+          class: 'instagram-with-circle',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>

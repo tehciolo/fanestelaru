@@ -75,8 +75,8 @@
 
 <script>
 export default {
-  name: 'TheHeader'
-}
+  name: 'TheHeader',
+};
 </script>
 
 <style>
