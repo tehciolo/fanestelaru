@@ -7,19 +7,19 @@
         <nuxt />
       </main>
 
-      <TheFooter />
+      <!-- <TheFooter /> -->
     </div>
   </div>
 </template>
 
 <script>
-import TheFooter from '~/components/TheFooter'
+// import TheFooter from '~/components/TheFooter'
 
 export default {
   name: 'Landing',
 
   components: {
-    TheFooter
+    // TheFooter
   }
 }
 </script>
