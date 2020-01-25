@@ -1,5 +1,7 @@
 # fanestelaru
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/66ae402e-05fb-489b-8269-8e022a253f44/deploy-status)](https://app.netlify.com/sites/fanestelaru/deploys)
+
 > Fane Stelaru homepage
 
 ## Build Setup
