@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import IndexLogo from '@/components/IndexLogo.vue'
+import IndexLogo from '@/components/IndexLogo.vue';
 
 export default {
   layout: 'landing',
@@ -32,15 +32,15 @@ export default {
   name: 'Index',
 
   components: {
-    IndexLogo
+    IndexLogo,
   },
 
   data () {
     return {
       //
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style scoped>

@@ -22,20 +22,20 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import FsEvent from '@/components/FsEvent'
+import { mapGetters } from 'vuex';
+import FsEvent from '@/components/FsEvent';
 
 export default {
   name: 'Events',
 
   components: {
-    FsEvent
+    FsEvent,
   },
   computed: mapGetters([
     'isAuthenticated',
-    'loggedUser'
-  ])
-}
+    'loggedUser',
+  ]),
+};
 </script>
 
 <style>

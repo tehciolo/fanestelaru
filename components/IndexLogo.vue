@@ -16,8 +16,8 @@
 
 <script>
 export default {
-  name: 'IndexLogo'
-}
+  name: 'IndexLogo',
+};
 </script>
 
 <style>

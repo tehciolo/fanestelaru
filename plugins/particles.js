@@ -1,4 +1,4 @@
-import 'particles.js'
+import 'particles.js';
 
 export default ({ app }) => {
   /*
@@ -10,14 +10,14 @@ export default ({ app }) => {
   */
   app.router.beforeEach((to, from, next) => {
     if (window.pJSDom.length > 0) {
-      window.pJSDom[0].pJS.fn.vendors.destroypJS()
-      window.pJSDom = []
+      window.pJSDom[0].pJS.fn.vendors.destroypJS();
+      window.pJSDom = [];
     }
 
-    next()
-  })
+    next();
+  });
 
   app.router.afterEach((to, from) => {
     particlesJS.load('particles', '/particles.json') // eslint-disable-line
-  })
-}
+  });
+};

@@ -21,8 +21,8 @@
 
 <script>
 export default {
-  name: 'FsEvent'
-}
+  name: 'FsEvent',
+};
 </script>
 
 <style>

@@ -30,13 +30,13 @@ export default {
       // return this.$root.library.filter((entry) => {
       //   return entry.sections.includes('music')
       // })
-      return []
-    }
-  }
+      return [];
+    },
+  },
   // components: {
   //   FsMusic
   // },
-}
+};
 </script>
 
 <style scoped>
