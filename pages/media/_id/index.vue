@@ -60,6 +60,12 @@ export default {
     YoutubeEmbed,
   },
 
+  async asyncData (context) {
+    const media = await getMusicItem(context.params.id);
+
+    return { media };
+  },
+
   data () {
     return {
       active: '',
@@ -75,12 +81,6 @@ export default {
     date () {
       return `${this.media.date.month} ${this.media.date.year}`;
     },
-  },
-
-  async asyncData (context) {
-    const media = await getMusicItem(context.params.id);
-
-    return { media };
   },
 
   created () {

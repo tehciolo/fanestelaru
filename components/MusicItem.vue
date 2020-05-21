@@ -66,7 +66,7 @@ export default {
           } else if (source.type === 'tracks') {
             link = `https://soundcloud.com/stefan-tvr/${source.slug}`;
           } else {
-            link = `#`;
+            link = '#';
           }
           break;
         case 'youtube':
@@ -75,11 +75,11 @@ export default {
           } else if (source.type === 'video') {
             link = `https://www.youtube.com/watch?v=${source.id}`;
           } else {
-            link = `#`;
+            link = '#';
           }
           break;
         default:
-          link = `#`;
+          link = '#';
           break;
       }
 

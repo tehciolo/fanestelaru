@@ -19,11 +19,11 @@ export default {
   ** PWA manifest data
   */
   manifest: {
-    'name': 'fanestelaru.com',
-    'short_name': 'fanestelaru.com',
-    'display': 'standalone',
-    'background_color': '#000000',
-    'theme_color': '#4DBA87',
+    name: 'fanestelaru.com',
+    short_name: 'fanestelaru.com',
+    display: 'standalone',
+    background_color: '#000000',
+    theme_color: '#4DBA87',
   },
   /*
   ** Customize the progress-bar color
