@@ -10,32 +10,29 @@
         :key="media.id"
         class="music__item"
       >
-        {{ media.id }}
-        <!-- <FsMusic
+        <MusicItem
           :media="media"
-        ></FsMusic> -->
+        ></MusicItem>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-// import FsMusic from '@/components/FsMusic'
+import MusicItem from '@/components/MusicItem';
+import { getMusic } from '@/assets/js/api/index.js';
 
 export default {
   name: 'Music',
 
-  computed: {
-    library () {
-      // return this.$root.library.filter((entry) => {
-      //   return entry.sections.includes('music')
-      // })
-      return [];
-    },
+  components: {
+    MusicItem,
   },
-  // components: {
-  //   FsMusic
-  // },
+
+  async asyncData () {
+    const library = await getMusic();
+    return { library };
+  },
 };
 </script>
 
