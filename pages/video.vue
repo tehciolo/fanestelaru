@@ -10,32 +10,28 @@
         :key="media.id"
         class="video__item"
       >
-        {{ media.id }}
-        <!-- <FsVideo
-          :media="media"
-        ></FsVideo> -->
+        <VideoItem :media="media" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-// import FsVideo from '@/components/FsVideo'
+import { getVideos } from '@/assets/js/api';
+import VideoItem from '@/components/VideoItem';
 
 export default {
   name: 'Video',
 
-  computed: {
-    library () {
-      // return this.$root.library.filter((entry) => {
-      //   return entry.sections.includes('video')
-      // })
-      return [];
-    },
+  components: {
+    VideoItem,
   },
-  // components: {
-  //   FsVideo
-  // }
+
+  async asyncData () {
+    const library = await getVideos();
+
+    return { library };
+  },
 };
 </script>
 
