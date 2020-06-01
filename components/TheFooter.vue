@@ -70,6 +70,11 @@ export default {
           link: 'https://www.instagram.com/fane.stelaru/',
           class: 'instagram-with-circle',
         },
+        {
+          name: 'youtube',
+          link: 'https://www.youtube.com/user/MrDirectDambla',
+          class: 'youtube-with-circle',
+        },
       ],
     };
   },
