@@ -1,3 +1,4 @@
+import { getMusic } from './assets/js/api/index.js';
 
 export default {
   mode: 'universal',
@@ -79,6 +80,16 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    },
+  },
+
+  generate: {
+    async routes () {
+      const res = await getMusic();
+
+      return res.map((media) => {
+        return '/media/' + media.id;
+      });
     },
   },
 };
