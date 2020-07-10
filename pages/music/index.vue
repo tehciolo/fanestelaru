@@ -1,47 +1,17 @@
-/* eslint-disable vue/html-indent */
 <template>
   <div data-route="index">
     <IndexLogo />
 
     <ul class="section__list webfont">
       <li class="section__item">
-        <nuxt-link to="/music">
-          music
+        <nuxt-link to="/music/records">
+          records
         </nuxt-link>
-        <ul>
-          <li>
-            <nuxt-link to="/music/records">
-              records
-            </nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/music/soundtracks">
-              soundtracks
-            </nuxt-link>
-          </li>
-        </ul>
       </li>
       <li class="section__item">
-        <nuxt-link to="/sound-design">
-          sound design
+        <nuxt-link to="/music/soundtracks">
+          soundtracks
         </nuxt-link>
-        <ul>
-          <li>
-            <nuxt-link to="/sound-design/video-games">
-              video games
-            </nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/sound-design/film">
-              film
-            </nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/sound-design/commercials">
-              commercials
-            </nuxt-link>
-          </li>
-        </ul>
       </li>
     </ul>
   </div>
@@ -53,16 +23,10 @@ import IndexLogo from '@/components/IndexLogo.vue';
 export default {
   layout: 'landing',
 
-  name: 'Index',
+  name: 'Music',
 
   components: {
     IndexLogo,
-  },
-
-  data () {
-    return {
-      //
-    };
   },
 };
 </script>

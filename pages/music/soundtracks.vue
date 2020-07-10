@@ -1,5 +1,5 @@
 <template>
-  <div data-route="sound-tracks">
+  <div data-route="soundtracks">
     <h2 class="screen-reader-text">
       Sound Tracks
     </h2>
@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  name: 'SoundTracks',
+  name: 'Soundtracks',
 };
 </script>

@@ -17,6 +17,54 @@ const library = [
   //   ],
   // },
   {
+    id: '-10',
+    name: '',
+    date: {
+      year: 0,
+      month: 'unknown',
+    },
+    sections: ['commercials'],
+    sources: [
+      {
+        source: 'native',
+        href: 'https://vod.ferrero.com/kinder-com/ro/Alma.mp4',
+        type: 'video',
+      },
+    ],
+  },
+  {
+    id: '-9',
+    name: '',
+    date: {
+      year: 0,
+      month: 'unknown',
+    },
+    sections: ['commercials'],
+    sources: [
+      {
+        source: 'native',
+        href: 'https://vod.ferrero.com/kinder-com/ro/Matei.mp4',
+        type: 'video',
+      },
+    ],
+  },
+  {
+    id: '-8',
+    name: 'BIFSC2019_ESCAPE_ Sound design competition',
+    date: {
+      year: 0,
+      month: 'unknown',
+    },
+    sections: ['film'],
+    sources: [
+      {
+        source: 'youtube',
+        id: 'DFCWP0hHeUM',
+        type: 'video',
+      },
+    ],
+  },
+  {
     id: '-7',
     name: 'Clasified stories',
     date: {
@@ -39,7 +87,7 @@ const library = [
       year: 0,
       month: 'unknown',
     },
-    sections: ['video-games'],
+    sections: ['video-games', 'film'],
     sources: [
       {
         source: 'youtube',
@@ -56,11 +104,11 @@ const library = [
       month: 'April',
     },
     sections: ['records'],
+    cover: 'muzic-din-laptop.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '442233929',
-        cover: 'muzic-din-laptop',
         slug: 'muzic-din-laptop',
       },
       {
@@ -85,11 +133,11 @@ const library = [
       month: 'March',
     },
     sections: ['records'],
+    cover: 'ninge-i-m-am-dus-la-geam-s-v-d-i-mi-am-luat-eap.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '414027539',
-        cover: 'ninge-i-m-am-dus-la-geam-s-v-d-i-mi-am-luat-eap',
         slug: 'ninge-i-m-am-dus-la-geam-s-v-d-i-mi-am-luat-eap',
       },
       {
@@ -114,6 +162,7 @@ const library = [
       month: 'August',
     },
     sections: ['records'],
+    cover: 'na.png',
     sources: [
       {
         source: 'youtube',
@@ -131,11 +180,11 @@ const library = [
       month: 'January',
     },
     sections: ['records'],
+    cover: 'strada-hologramelor.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '1741218739',
-        cover: 'strada-hologramelor',
         slug: 'strada-hologramelor',
       },
       {
@@ -211,11 +260,11 @@ const library = [
       month: 'March',
     },
     sections: ['records'],
+    cover: 'megamirage.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '1485838632',
-        cover: 'megamirage',
         slug: 'megamirage',
       },
       {
@@ -233,11 +282,11 @@ const library = [
       month: 'March',
     },
     sections: ['records'],
+    cover: 'r-ul-alb.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '612243869',
-        cover: 'r-ul-alb',
         slug: 'r-ul-alb',
       },
       {
@@ -262,11 +311,11 @@ const library = [
       month: 'June',
     },
     sections: ['records'],
+    cover: '19c0sm0s.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '491435323',
-        cover: '19c0sm0s',
         slug: '19c0sm0s',
       },
       {
@@ -291,11 +340,11 @@ const library = [
       month: 'April',
     },
     sections: ['records'],
+    cover: 'nu-toate-noptile-se-pierd.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '1126191139',
-        cover: 'nu-toate-noptile-se-pierd',
         slug: 'nu-toate-noptile-se-pierd',
       },
       {
@@ -314,11 +363,11 @@ const library = [
       month: 'March',
     },
     sections: ['records'],
+    cover: 'planeta-maimultelor-2.jpg',
     sources: [
       {
         source: 'bandcamp',
         id: '588405546',
-        cover: 'planeta-maimultelor-2',
         slug: 'planeta-maimultelor-2',
       },
       {

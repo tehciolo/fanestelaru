@@ -1,29 +1,19 @@
 <template>
-  <div>
-    <div id="particles" />
-
-    <div class="fs-container">
-      <TheHeader />
-
-      <main>
-        <nuxt />
-      </main>
-
-      <TheFooter />
-    </div>
-  </div>
+  <LayoutWrapper>
+    <main>
+      <nuxt />
+    </main>
+  </LayoutWrapper>
 </template>
 
 <script>
-import TheHeader from '~/components/TheHeader';
-import TheFooter from '~/components/TheFooter';
+import LayoutWrapper from '~/components/LayoutWrapper';
 
 export default {
-  name: 'Layout',
+  name: 'Default',
 
   components: {
-    TheHeader,
-    TheFooter,
+    LayoutWrapper,
   },
 };
 </script>
