@@ -46,9 +46,13 @@ export default {
 
   computed: {
     cover () {
-      return this.media.sources.find((source) => {
+      const bandcampSource = this.media.sources.find((source) => {
         return source.source === 'bandcamp';
-      }).cover;
+      });
+
+      return bandcampSource
+        ? bandcampSource.cover
+        : '';
     },
   },
 

@@ -1,48 +1,136 @@
 const library = [
+  // {
+  //   id: '-4',
+  //   name: 'Doua Dube (Cover B.U.G. Mafia)',
+  //   description: 'Muzica - Fane Stelaru<br>Text(cover) - B.U.G. Mafia',
+  //   date: {
+  //     year: 2018,
+  //     month: 'May',
+  //   },
+  //   sections: ['video'],
+  //   sources: [
+  //     {
+  //       source: 'youtube',
+  //       id: '8rFWJnlW6Xs',
+  //       type: 'video',
+  //     },
+  //   ],
+  // },
   {
-    id: '-4',
-    name: 'Doua Dube (Cover B.U.G. Mafia)',
-    description: 'Muzica - Fane Stelaru<br>Text(cover) - B.U.G. Mafia',
+    id: '-7',
+    name: 'Clasified stories',
     date: {
-      year: 2018,
-      month: 'May',
+      year: 0,
+      month: 'unknown',
     },
-    sections: ['video'],
+    sections: ['video-games'],
     sources: [
       {
         source: 'youtube',
-        id: '8rFWJnlW6Xs',
+        id: 'd5iAFpek0hE',
         type: 'video',
       },
     ],
   },
   {
-    id: '-3',
-    name: 'Strada Hologramelor (Instrumentals)',
-    description: '',
+    id: '-6',
+    name: 'DarkestDungeon DemoReel',
     date: {
-      year: 2018,
-      month: 'February',
+      year: 0,
+      month: 'unknown',
     },
-    sections: ['music'],
+    sections: ['video-games'],
+    sources: [
+      {
+        source: 'youtube',
+        id: 'UYKOOpAaGhc',
+        type: 'video',
+      },
+    ],
+  },
+  {
+    id: '-5',
+    name: 'Muzică din laptop',
+    date: {
+      year: 2020,
+      month: 'April',
+    },
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
-        id: '1949589814',
-        cover: 'strada-hologramelor',
-        slug: 'strada-hologramelor-instrumentals',
+        id: '442233929',
+        cover: 'muzic-din-laptop',
+        slug: 'muzic-din-laptop',
+      },
+      {
+        source: 'soundcloud',
+        id: '1056806830',
+        type: 'playlists',
+        slug: 'muzica-din-laptop',
+      },
+      {
+        source: 'youtube',
+        id: 'PLqlKMTzU8q8ODB6_Q5h8BLdNNPh2TbCuD',
+        type: 'playlist',
+        startId: 'KhtSjjKt3QY',
+      },
+    ],
+  },
+  {
+    id: '-4',
+    name: 'Ninge și m-am dus la geam să văd și mi-am luat țeapă',
+    date: {
+      year: 2019,
+      month: 'March',
+    },
+    sections: ['records'],
+    sources: [
+      {
+        source: 'bandcamp',
+        id: '414027539',
+        cover: 'ninge-i-m-am-dus-la-geam-s-v-d-i-mi-am-luat-eap',
+        slug: 'ninge-i-m-am-dus-la-geam-s-v-d-i-mi-am-luat-eap',
+      },
+      {
+        source: 'soundcloud',
+        id: '744085164',
+        type: 'playlists',
+        slug: 'ninge-si-m-am-dus-la-geam-sa-vad-si-mi-am-luat-teapa',
+      },
+      {
+        source: 'youtube',
+        id: 'PLqlKMTzU8q8Nh2ki-dPks6yvCVH5g6Maa',
+        type: 'playlist',
+        startId: 'oQH3IJ019_c',
+      },
+    ],
+  },
+  {
+    id: '-3',
+    name: 'Magellan',
+    date: {
+      year: 2018,
+      month: 'August',
+    },
+    sections: ['records'],
+    sources: [
+      {
+        source: 'youtube',
+        id: 'PLqlKMTzU8q8P77bSdbwZ7V3xkaZjtjR-O',
+        type: 'playlist',
+        startId: 'WKwH_PloNes',
       },
     ],
   },
   {
     id: '-2',
     name: 'Strada Hologramelor',
-    description: '',
     date: {
       year: 2018,
       month: 'January',
     },
-    sections: ['music'],
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
@@ -64,84 +152,65 @@ const library = [
       },
     ],
   },
-  {
-    id: '-1',
-    name: 'SamuraiJack vs Shinobi (Sound remake)',
-    description: 'Soundtrack demo',
-    date: {
-      year: 2017,
-      month: 'September',
-    },
-    sections: ['soundtrack'],
-    sources: [
-      {
-        source: 'youtube',
-        id: 'DOOX76ebtZk',
-        type: 'video',
-      },
-    ],
-  },
-  {
-    id: '0',
-    name: 'Nu te recunosc',
-    description: 'Theme-song-ul pentru spectacolul 3 Despartiri in regia Irina Slate',
-    date: {
-      year: 2017,
-      month: 'August',
-    },
-    sections: ['soundtrack'],
-    sources: [
-      {
-        source: 'youtube',
-        id: 'KRkRdoL4zoE',
-        type: 'video',
-      },
-    ],
-  },
-  {
-    id: '1',
-    name: 'Lost cats',
-    description: 'Music demo for a game about a cat looking for its way home.',
-    date: {
-      year: 2017,
-      month: 'July',
-    },
-    sections: ['soundtrack'],
-    sources: [
-      {
-        source: 'youtube',
-        id: 'kJlvl2kNk9s',
-        type: 'video',
-      },
-    ],
-  },
-  {
-    id: '2',
-    name: 'Lost and found (Beats)',
-    description: 'Instrumental: FaneStelaru<br>Mix/Master: FaneStelaru',
-    date: {
-      year: 2017,
-      month: 'April',
-    },
-    sections: ['music'],
-    sources: [
-      {
-        source: 'bandcamp',
-        id: '889554299',
-        cover: 'lost-and-found-beats',
-        slug: 'lost-and-found-beats',
-      },
-    ],
-  },
+  // {
+  //   id: '-1',
+  //   name: 'SamuraiJack vs Shinobi (Sound remake)',
+  //   description: 'Soundtrack demo',
+  //   date: {
+  //     year: 2017,
+  //     month: 'September',
+  //   },
+  //   sections: ['soundtrack'],
+  //   sources: [
+  //     {
+  //       source: 'youtube',
+  //       id: 'DOOX76ebtZk',
+  //       type: 'video',
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: '0',
+  //   name: 'Nu te recunosc',
+  //   description: 'Theme-song-ul pentru spectacolul 3 Despartiri in regia Irina Slate',
+  //   date: {
+  //     year: 2017,
+  //     month: 'August',
+  //   },
+  //   sections: ['soundtrack'],
+  //   sources: [
+  //     {
+  //       source: 'youtube',
+  //       id: 'KRkRdoL4zoE',
+  //       type: 'video',
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: '1',
+  //   name: 'Lost cats',
+  //   description: 'Music demo for a game about a cat looking for its way home.',
+  //   date: {
+  //     year: 2017,
+  //     month: 'July',
+  //   },
+  //   sections: ['soundtrack'],
+  //   sources: [
+  //     {
+  //       source: 'youtube',
+  //       id: 'kJlvl2kNk9s',
+  //       type: 'video',
+  //     },
+  //   ],
+  // },
   {
     id: '3',
     name: 'MegaMirage',
-    description: 'Muzica/Text: FaneStelaru<br>Imagine/Montaj: Octavian Catana<br>Regie: Irina Slate',
     date: {
       year: 2017,
       month: 'March',
     },
-    sections: ['music', 'video'],
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
@@ -157,32 +226,13 @@ const library = [
     ],
   },
   {
-    id: '4',
-    name: 'Raul alb (Instrumentals)',
-    description: 'Instrumental: FaneStelaru<br>Mix/Master: FaneStelaru',
-    date: {
-      year: 2016,
-      month: 'November',
-    },
-    sections: ['music'],
-    sources: [
-      {
-        source: 'bandcamp',
-        id: '803044391',
-        cover: 'r-ul-alb-instrumentals',
-        slug: 'r-ul-alb-instrumentals',
-      },
-    ],
-  },
-  {
     id: '5',
-    name: 'Raul alb',
-    description: 'Text/Voce: FaneStelaru<br>Instrumental: FaneStelaru<br>Mix/Master: FaneStelaru',
+    name: 'Râul Alb',
     date: {
       year: 2016,
       month: 'March',
     },
-    sections: ['music'],
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
@@ -207,12 +257,11 @@ const library = [
   {
     id: '6',
     name: '19C0sm0s',
-    description: 'Text/Voce: FaneStelaru<br>Instrumental: FaneStelaru',
     date: {
       year: 2015,
       month: 'June',
     },
-    sections: ['music'],
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
@@ -237,12 +286,11 @@ const library = [
   {
     id: '7',
     name: 'Nu toate noptile se pierd',
-    description: 'Text/Voce: FaneStelaru<br>Instrumentale: Citizen X',
     date: {
       year: 2015,
       month: 'April',
     },
-    sections: ['music'],
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
@@ -261,12 +309,11 @@ const library = [
   {
     id: '8',
     name: 'Planeta MaiMultelor',
-    description: 'Text/Voce: FaneStelaru<br>Instrumentale: FaneStelaru, EugenIustin',
     date: {
       year: 2014,
       month: 'March',
     },
-    sections: ['music'],
+    sections: ['records'],
     sources: [
       {
         source: 'bandcamp',
@@ -276,7 +323,7 @@ const library = [
       },
       {
         source: 'youtube',
-        id: 'PLqlKMTzU8q8MmQWx5P4SopWbgNVmQB63K',
+        id: 'PLqlKMTzU8q8NSHRANo7O0RD_y1MqKeNYc',
         type: 'playlist',
         startId: '0xa_Z9JQ6y0',
       },
@@ -284,8 +331,8 @@ const library = [
   },
 ];
 
-const music = library.filter((entry) => {
-  return entry.sections.includes('music');
+const records = library.filter((entry) => {
+  return entry.sections.includes('records');
 });
 const findMusicItemById = id => library.find((entry) => {
   return entry.id === id;
@@ -294,9 +341,9 @@ const videos = library.filter((entry) => {
   return entry.sections.includes('video');
 });
 
-export const getMusic = () => {
+export const getRecords = () => {
   return new Promise(function (resolve) {
-    resolve(music);
+    resolve(records);
   });
 };
 

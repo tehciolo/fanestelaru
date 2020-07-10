@@ -1,7 +1,7 @@
 <template>
-  <div data-route="music">
+  <div data-route="records">
     <h2 class="screen-reader-text">
-      Music
+      Records
     </h2>
 
     <ul class="music__list">
@@ -20,33 +20,33 @@
 
 <script>
 import MusicItem from '@/components/MusicItem';
-import { getMusic } from '@/assets/js/api/index.js';
+import { getRecords } from '@/assets/js/api/index.js';
 
 export default {
-  name: 'Music',
+  name: 'Records',
 
   components: {
     MusicItem,
   },
 
   async asyncData () {
-    const library = await getMusic();
+    const library = await getRecords();
     return { library };
   },
 };
 </script>
 
 <style scoped>
-[data-route="music"] {
+[data-route="records"] {
   width: calc(400px + 2rem);
 }
 @media (min-width: 852px) {
-  [data-route="music"] {
+  [data-route="records"] {
     width: calc(800px + 2rem);
   }
 }
 @media (min-width: 1252px) {
-  [data-route="music"] {
+  [data-route="records"] {
     width: calc(1200px + 2rem);
   }
 }
