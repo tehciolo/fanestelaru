@@ -1,7 +1,5 @@
 <template>
   <div data-route="index">
-    <IndexLogo />
-
     <ul class="section__list webfont">
       <li class="section__item">
         <nuxt-link to="/sound-design/video-games">
@@ -23,16 +21,10 @@
 </template>
 
 <script>
-import IndexLogo from '@/components/IndexLogo.vue';
-
 export default {
   layout: 'landing',
 
   name: 'SoundDesign',
-
-  components: {
-    IndexLogo,
-  },
 };
 </script>
 
@@ -55,12 +47,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-@media screen and (min-width: 400px) {
-  .section__list {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }
 .section__item {
   font-size: 1.7rem;

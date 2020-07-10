@@ -48,6 +48,7 @@ export default {
 html {
   box-sizing: border-box;
   background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
+  overflow-y: scroll;
 }
 
 *,
@@ -106,5 +107,16 @@ a {
   position: absolute;
   width: 1px;
   word-wrap: normal;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: calc(1200px + 2rem);
+  margin: 1rem auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 </style>

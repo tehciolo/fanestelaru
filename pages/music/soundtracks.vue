@@ -4,7 +4,9 @@
       Sound Tracks
     </h2>
 
-    <p>Coming soon&hellip;</p>
+    <p style="text-align: center;">
+      Coming soon&hellip;
+    </p>
   </div>
 </template>
 

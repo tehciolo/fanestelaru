@@ -39,6 +39,7 @@ export default {
 <style scoped>
 [data-route="records"] {
   width: calc(400px + 2rem);
+  margin: 0 auto;
 }
 @media (min-width: 852px) {
   [data-route="records"] {
@@ -47,7 +48,7 @@ export default {
 }
 @media (min-width: 1252px) {
   [data-route="records"] {
-    width: calc(1200px + 2rem);
+    width: initial;
   }
 }
 .music__list {
@@ -57,9 +58,10 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .music__item {
-  flex-basis: 400px;
+  flex-basis: 340px;
   padding: 1.5rem 0;
 }
 @media (min-width: 852px) {

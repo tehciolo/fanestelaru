@@ -41,6 +41,11 @@ export default {
 </script>
 
 <style>
+[data-route="commercials"] {
+  width: 540px;
+  margin: 0 auto;
+}
+
 .video__list {
   padding: 0;
   margin: 0 0 1rem;

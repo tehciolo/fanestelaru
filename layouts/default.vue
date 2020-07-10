@@ -17,16 +17,3 @@ export default {
   },
 };
 </script>
-
-<style>
-main {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  width: 540px;
-  margin: 1rem auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-</style>
