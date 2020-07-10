@@ -1,8 +1,8 @@
 <template>
   <div data-route="events">
-    <h2 class="screen-reader-text">
+    <h1 class="screen-reader-text">
       Events
-    </h2>
+    </h1>
 
     <p style="text-align: center;">
       Coming soon&hellip;
@@ -13,5 +13,16 @@
 <script>
 export default {
   name: 'Events',
+
+  head () {
+    return {
+      title: 'Events - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Events' },
+        { hid: 'description', name: 'description', content: 'Find out everything you need about FaneStelaru events!' },
+        { hid: 'keywords', name: 'keywords', content: 'events' },
+      ],
+    };
+  },
 };
 </script>

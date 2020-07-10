@@ -56,7 +56,17 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
   ],
+  /*
+  ** Sitemap module configuration
+  ** See https://www.npmjs.com/package/@nuxtjs/sitemap
+  */
+  sitemap: {
+    hostname: 'https://fanestelaru.com',
+    gzip: true,
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

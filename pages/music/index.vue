@@ -1,12 +1,24 @@
 <template>
   <div data-route="index">
+    <h1 class="screen-reader-text">
+      Music
+    </h1>
+
     <ul class="section__list webfont">
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Records
+        </h2>
+
         <nuxt-link to="/music/records">
           records
         </nuxt-link>
       </li>
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Soundtracks
+        </h2>
+
         <nuxt-link to="/music/soundtracks">
           soundtracks
         </nuxt-link>
@@ -20,6 +32,17 @@ export default {
   layout: 'landing',
 
   name: 'Music',
+
+  head () {
+    return {
+      title: 'Music - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Music' },
+        { hid: 'description', name: 'description', content: 'This is the landing page for everything music related. Find out more about FaneStelaru records and soundtracks.' },
+        { hid: 'keywords', name: 'keywords', content: 'music, records, soundtracks' },
+      ],
+    };
+  },
 };
 </script>
 

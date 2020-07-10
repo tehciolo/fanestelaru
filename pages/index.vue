@@ -1,10 +1,18 @@
 /* eslint-disable vue/html-indent */
 <template>
   <div data-route="index">
+    <h1 class="screen-reader-text">
+      Homepage
+    </h1>
+
     <IndexLogo />
 
     <ul class="section__list webfont">
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Music
+        </h2>
+
         music
 
         <ul>
@@ -21,6 +29,10 @@
         </ul>
       </li>
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Sound design
+        </h2>
+
         sound design <!-- eslint-disable-line -->
 
         <ul>
@@ -57,9 +69,14 @@ export default {
     IndexLogo,
   },
 
-  data () {
+  head () {
     return {
-      //
+      title: 'Homepage - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Homepage' },
+        { hid: 'description', name: 'description', content: 'This is the homepage for FaneStelaru.com. Here you can find info about his music and sound design projects.' },
+        { hid: 'keywords', name: 'keywords', content: 'homepage, index, music, sound design' },
+      ],
     };
   },
 };
