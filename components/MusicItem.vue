@@ -1,14 +1,25 @@
 <template>
   <div data-component="music-item">
     <h4 class="album-date">
-      <span v-text="media.date.year"></span>,
-      <span v-text="media.date.month"></span>
+      <span>{{ media.date.year }}</span>,
+
+      <span>{{ media.date.month }}</span>
     </h4>
-    <h3 class="album-title" v-text="media.name"></h3>
+
+    <h3 class="album-title">
+      {{ media.name }}
+    </h3>
+
     <div class="album-object">
       <div class="album-object__media">
-        <nuxt-link :to="{ name: 'media-id', params: { id: media.id }}" class="play-link">
-          <div class="square-bg" :style="`background-image: url(/img/covers/${cover}.jpg)`"></div>
+        <nuxt-link
+          :to="{ name: 'media-id', params: { id: media.id }}"
+          class="play-link"
+        >
+          <div
+            class="square-bg"
+            :style="backgroundImage"
+          />
         </nuxt-link>
       </div>
 
@@ -22,7 +33,11 @@
             v-for="source in media.sources"
             :key="source.id"
           >
-            <a :href="getLink(source)" class="res-list__link" target="_blank">{{ source.source }}</a>
+            <a
+              :href="getLink(source)"
+              class="res-list__link"
+              target="_blank"
+            >{{ source.source }}</a>
           </li>
         </ul>
       </div>
@@ -45,10 +60,10 @@ export default {
   },
 
   computed: {
-    cover () {
-      return this.media.sources.find((source) => {
-        return source.source === 'bandcamp';
-      }).cover;
+    backgroundImage () {
+      if (!this.media.cover) { return ''; }
+
+      return `background-image: url(/img/covers/${this.media.cover})`;
     },
   },
 

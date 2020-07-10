@@ -1,7 +1,7 @@
 <template>
-  <div data-route="video">
+  <div data-route="film">
     <h3 class="screen-reader-text">
-      Video
+      Film
     </h3>
 
     <ul class="video__list">
@@ -10,25 +10,28 @@
         :key="media.id"
         class="video__item"
       >
-        <VideoItem :media="media" />
+        <VideoItem
+          :media="media"
+          :extended="false"
+        />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { getVideos } from '@/assets/js/api';
+import { getFilm } from '@/assets/js/api';
 import VideoItem from '@/components/VideoItem';
 
 export default {
-  name: 'Video',
+  name: 'Film',
 
   components: {
     VideoItem,
   },
 
   async asyncData () {
-    const library = await getVideos();
+    const library = await getFilm();
 
     return { library };
   },
@@ -38,7 +41,7 @@ export default {
 <style>
 .video__list {
   padding: 0;
-  margin: 0;
+  margin: 0 0 1rem;
   list-style-type: none;
 }
 .video__item:not(:last-child) {

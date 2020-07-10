@@ -1,4 +1,4 @@
-import { getMusic } from './assets/js/api/index.js';
+import { getRecords } from './assets/js/api/index.js';
 
 export default {
   mode: 'universal',
@@ -76,7 +76,7 @@ export default {
 
   generate: {
     async routes () {
-      const res = await getMusic();
+      const res = await getRecords();
 
       return res.map((media) => {
         return '/media/' + media.id;

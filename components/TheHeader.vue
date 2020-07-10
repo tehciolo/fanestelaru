@@ -59,12 +59,7 @@
           </li>
           <li class="nav__item">
             <nuxt-link to="/sound-design">
-              sound design
-            </nuxt-link>
-          </li>
-          <li class="nav__item">
-            <nuxt-link to="/video">
-              video
+              sound design <!-- eslint-disable-line -->
             </nuxt-link>
           </li>
         </ul>
