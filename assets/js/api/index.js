@@ -386,8 +386,14 @@ const records = library.filter((entry) => {
 const findMusicItemById = id => library.find((entry) => {
   return entry.id === id;
 });
-const videos = library.filter((entry) => {
-  return entry.sections.includes('video');
+const videoGames = library.filter((entry) => {
+  return entry.sections.includes('video-games');
+});
+const film = library.filter((entry) => {
+  return entry.sections.includes('film');
+});
+const commercials = library.filter((entry) => {
+  return entry.sections.includes('commercials');
 });
 
 export const getRecords = () => {
@@ -402,8 +408,20 @@ export const getMusicItem = (id) => {
   });
 };
 
-export const getVideos = () => {
+export const getVideoGames = () => {
   return new Promise(function (resolve) {
-    resolve(videos);
+    resolve(videoGames);
+  });
+};
+
+export const getFilm = () => {
+  return new Promise(function (resolve) {
+    resolve(film);
+  });
+};
+
+export const getCommercials = () => {
+  return new Promise(function (resolve) {
+    resolve(commercials);
   });
 };

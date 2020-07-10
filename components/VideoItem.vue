@@ -21,12 +21,11 @@ export default {
       type: Object,
       required: true,
     },
-  },
 
-  data () {
-    return {
-      extended: true,
-    };
+    extended: {
+      type: Boolean,
+      default: true,
+    },
   },
 };
 </script>
