@@ -1,8 +1,8 @@
 <template>
   <div data-route="film">
-    <h3 class="screen-reader-text">
+    <h1 class="screen-reader-text">
       Film
-    </h3>
+    </h1>
 
     <ul class="video__list">
       <li
@@ -34,6 +34,17 @@ export default {
     const library = await getFilm();
 
     return { library };
+  },
+
+  head () {
+    return {
+      title: 'Film - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Film' },
+        { hid: 'description', name: 'description', content: 'Want to know what films FaneStelaru has been working on? This page features some of his most recent work.' },
+        { hid: 'keywords', name: 'keywords', content: 'film, sound design' },
+      ],
+    };
   },
 };
 </script>

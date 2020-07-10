@@ -1,8 +1,8 @@
 <template>
   <div data-route="commercials">
-    <h3 class="screen-reader-text">
+    <h1 class="screen-reader-text">
       Commercials
-    </h3>
+    </h1>
 
     <ul class="video__list">
       <li
@@ -36,6 +36,17 @@ export default {
     getVideoSource (media) {
       return media.sources.find(source => source.source === 'native').href;
     },
+  },
+
+  head () {
+    return {
+      title: 'Commercials - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Commercials' },
+        { hid: 'description', name: 'description', content: 'Want to know what commercials FaneStelaru has been working on? This page features some of his most recent work.' },
+        { hid: 'keywords', name: 'keywords', content: 'commercials, sound design' },
+      ],
+    };
   },
 };
 </script>

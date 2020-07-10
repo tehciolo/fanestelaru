@@ -1,8 +1,8 @@
 <template>
   <div data-route="video-games">
-    <h3 class="screen-reader-text">
+    <h1 class="screen-reader-text">
       Video Games
-    </h3>
+    </h1>
 
     <ul class="video__list">
       <li
@@ -34,6 +34,17 @@ export default {
     const library = await getVideoGames();
 
     return { library };
+  },
+
+  head () {
+    return {
+      title: 'Video Games - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Video Games' },
+        { hid: 'description', name: 'description', content: 'Want to know what video games FaneStelaru has been working on? This page features some of his most recent work.' },
+        { hid: 'keywords', name: 'keywords', content: 'video games, sound design' },
+      ],
+    };
   },
 };
 </script>

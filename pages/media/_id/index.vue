@@ -86,6 +86,17 @@ export default {
   created () {
     this.active = this.media.sources[0].source;
   },
+
+  head () {
+    return {
+      title: `${this.media.name} - FaneStelaru.com`,
+      meta: [
+        { hid: 'title', name: 'title', content: `${this.media.name}` },
+        { hid: 'description', name: 'description', content: `Listen to ${this.media.name} on various streaming platforms.` },
+        { hid: 'keywords', name: 'keywords', content: 'record, album, music' },
+      ],
+    };
+  },
 };
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div data-route="records">
-    <h2 class="screen-reader-text">
+    <h1 class="screen-reader-text">
       Records
-    </h2>
+    </h1>
 
     <ul class="music__list">
       <li
@@ -32,6 +32,17 @@ export default {
   async asyncData () {
     const library = await getRecords();
     return { library };
+  },
+
+  head () {
+    return {
+      title: 'Records - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Records' },
+        { hid: 'description', name: 'description', content: 'Want to know what music FaneStelaru has been working on? This page features entries for all albums in his Discography, with listening options on various platforms.' },
+        { hid: 'keywords', name: 'keywords', content: 'records, albums, music' },
+      ],
+    };
   },
 };
 </script>

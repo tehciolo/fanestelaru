@@ -1,8 +1,8 @@
 <template>
   <div data-route="soundtracks">
-    <h2 class="screen-reader-text">
+    <h1 class="screen-reader-text">
       Sound Tracks
-    </h2>
+    </h1>
 
     <p style="text-align: center;">
       Coming soon&hellip;
@@ -13,5 +13,16 @@
 <script>
 export default {
   name: 'Soundtracks',
+
+  head () {
+    return {
+      title: 'Soundtracks - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Soundtracks' },
+        { hid: 'description', name: 'description', content: 'Coming soon...' },
+        { hid: 'keywords', name: 'keywords', content: 'soundtracks, sound tracks, music' },
+      ],
+    };
+  },
 };
 </script>

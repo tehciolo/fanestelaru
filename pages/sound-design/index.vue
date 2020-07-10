@@ -1,17 +1,33 @@
 <template>
   <div data-route="index">
+    <h1 class="screen-reader-text">
+      Sound design
+    </h1>
+
     <ul class="section__list webfont">
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Video games
+        </h2>
+
         <nuxt-link to="/sound-design/video-games">
           video games <!-- eslint-disable-line -->
         </nuxt-link>
       </li>
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Film
+        </h2>
+
         <nuxt-link to="/sound-design/film">
           film
         </nuxt-link>
       </li>
       <li class="section__item">
+        <h2 class="screen-reader-text">
+          Commercials
+        </h2>
+
         <nuxt-link to="/sound-design/commercials">
           commercials
         </nuxt-link>
@@ -25,6 +41,17 @@ export default {
   layout: 'landing',
 
   name: 'SoundDesign',
+
+  head () {
+    return {
+      title: 'Sound design - FaneStelaru.com',
+      meta: [
+        { hid: 'title', name: 'title', content: 'Sound design' },
+        { hid: 'description', name: 'description', content: 'This is the landing page for everything sound design related. Find out more about FaneStelaru films, commercials and video games.' },
+        { hid: 'keywords', name: 'keywords', content: 'sound design, film, commercials, videogames' },
+      ],
+    };
+  },
 };
 </script>
 
