@@ -1,17 +1,15 @@
 <template>
   <div data-route="events">
-    <FsEvent />
+    <h2 class="screen-reader-text">
+      Events
+    </h2>
+
+    <p>Coming soon&hellip;</p>
   </div>
 </template>
 
 <script>
-import FsEvent from '@/components/FsEvent';
-
 export default {
   name: 'Events',
-
-  components: {
-    FsEvent,
-  },
 };
 </script>
