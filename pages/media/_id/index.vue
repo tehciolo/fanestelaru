@@ -90,6 +90,12 @@ export default {
 </script>
 
 <style scoped>
+[data-component="fs-music-single"] {
+  width: 540px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .title {
   font-weight: normal;
   font-size: 24px;

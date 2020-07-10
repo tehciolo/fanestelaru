@@ -41,6 +41,7 @@ export default {
 <style scoped>
 [data-route="video-games"] {
   width: 540px;
+  max-width: 100%;
   margin: 0 auto;
 }
 

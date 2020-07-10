@@ -43,6 +43,7 @@ export default {
 <style>
 [data-route="commercials"] {
   width: 540px;
+  max-width: 100%;
   margin: 0 auto;
 }
 

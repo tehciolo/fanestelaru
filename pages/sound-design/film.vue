@@ -41,6 +41,7 @@ export default {
 <style>
 [data-route="film"] {
   width: 540px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
