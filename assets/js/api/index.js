@@ -17,6 +17,29 @@ const library = [
   //   ],
   // },
   {
+    id: '-11',
+    name: 'Nu toate noptile se pierd vol​.​2',
+    date: {
+      year: 2021,
+      month: 'January',
+    },
+    sections: ['records'],
+    cover: 'nu-toate-noptile-se-pierd-vol-2.jpg',
+    sources: [
+      {
+        source: 'bandcamp',
+        id: '3845603031',
+        slug: 'nu-toate-noptile-se-pierd-vol-2',
+      },
+      {
+        source: 'youtube',
+        id: 'PLqlKMTzU8q8OAR6CdMiva8sLU-ZBMefAk',
+        type: 'playlist',
+        startId: '4qRtPLa7g6Q',
+      },
+    ],
+  },
+  {
     id: '-10',
     name: '',
     date: {
