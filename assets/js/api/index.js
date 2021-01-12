@@ -87,7 +87,7 @@ const library = [
       year: 0,
       month: 'unknown',
     },
-    sections: ['video-games', 'film'],
+    sections: ['video-games'],
     sources: [
       {
         source: 'youtube',
