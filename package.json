@@ -30,6 +30,7 @@
     "faunadb": "^4.0.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.12.2",
+    "nuxt-buefy": "^0.4.4",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
