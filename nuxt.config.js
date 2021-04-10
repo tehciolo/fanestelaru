@@ -58,6 +58,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    'nuxt-buefy',
   ],
   /*
   ** Sitemap module configuration
