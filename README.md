@@ -22,3 +22,22 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`FAUNADB_SERVER_SECRET`
+
+## Build
+
+To build this project on CI, you will need to have the following environment variables
+
+`FUNCTIONS_SERVER_PORT`
+
+Then run
+
+```bash
+  npm run generate
+```
+

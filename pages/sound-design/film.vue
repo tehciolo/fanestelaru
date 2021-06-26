@@ -31,7 +31,12 @@ export default {
   },
 
   async asyncData () {
-    const library = await getFilm();
+    let library;
+    try {
+      library = await getFilm();
+    } catch (error) {
+      throw new Error(error);
+    }
 
     return { library };
   },

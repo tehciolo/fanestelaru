@@ -8,9 +8,10 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate --fail-on-page-error",
+    "generate": "netlify functions:serve -p $FUNCTIONS_SERVER_PORT & nuxt generate --fail-on-page-error",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "jest",
+    "netlify": "netlify dev"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint"
@@ -25,6 +26,8 @@
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sitemap": "^2.4.0",
+    "axios": "^0.21.1",
+    "faunadb": "^4.0.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.12.2",
     "particles.js": "^2.0.0"
@@ -43,6 +46,7 @@
     "husky": "^2.6.0",
     "jest": "^24.1.0",
     "lint-staged": "^8.2.1",
+    "netlify-cli": "^3.37.37",
     "vue-jest": "^4.0.0-0"
   }
 }

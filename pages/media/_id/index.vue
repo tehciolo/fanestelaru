@@ -44,7 +44,7 @@
 import BandcampEmbed from '@/components/BandcampEmbed.vue';
 import SoundcloudEmbed from '@/components/SoundcloudEmbed.vue';
 import YoutubeEmbed from '@/components/YoutubeEmbed.vue';
-import { getMusicItem } from '@/assets/js/api/index.js';
+import { getItem } from '@/assets/js/api/index.js';
 
 const capitalize = (s) => {
   if (typeof s !== 'string') { return ''; }
@@ -61,7 +61,7 @@ export default {
   },
 
   async asyncData (context) {
-    const media = await getMusicItem(context.params.id);
+    const media = await getItem(context.params.id);
 
     return { media };
   },
