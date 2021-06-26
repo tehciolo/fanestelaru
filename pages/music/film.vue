@@ -1,7 +1,7 @@
 <template>
-  <div data-route="soundtracks">
+  <div data-route="film">
     <h1 class="screen-reader-text">
-      Sound Tracks
+      Film
     </h1>
 
     <p style="text-align: center;">
@@ -12,15 +12,15 @@
 
 <script>
 export default {
-  name: 'Soundtracks',
+  name: 'Film',
 
   head () {
     return {
-      title: 'Soundtracks - FaneStelaru.com',
+      title: 'Film - FaneStelaru.com',
       meta: [
-        { hid: 'title', name: 'title', content: 'Soundtracks' },
+        { hid: 'title', name: 'title', content: 'Film' },
         { hid: 'description', name: 'description', content: 'Coming soon...' },
-        { hid: 'keywords', name: 'keywords', content: 'soundtracks, sound tracks, music' },
+        { hid: 'keywords', name: 'keywords', content: 'film, music' },
       ],
     };
   },

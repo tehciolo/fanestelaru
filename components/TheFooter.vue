@@ -1,8 +1,6 @@
 <template>
   <div data-component="fs-footer">
     <footer class="fs-footer webfont">
-      <MailChimpForm />
-
       <nuxt-link to="/events">
         events
       </nuxt-link>
@@ -43,14 +41,8 @@
 </template>
 
 <script>
-import MailChimpForm from '@/components/MailChimpForm.vue';
-
 export default {
   name: 'TheFooter',
-
-  components: {
-    MailChimpForm,
-  },
 
   data () {
     return {
