@@ -17,13 +17,18 @@
 
         <ul>
           <li>
-            <nuxt-link to="/music/records">
-              records
+            <nuxt-link to="/music/video-games">
+              video games
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/music/soundtracks">
-              soundtracks
+            <nuxt-link to="/music/film">
+              film
+            </nuxt-link>
+          </li>
+          <li>
+            <nuxt-link to="/music/records">
+              records
             </nuxt-link>
           </li>
         </ul>
