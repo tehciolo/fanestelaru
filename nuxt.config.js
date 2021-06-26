@@ -1,7 +1,6 @@
-import { getRecords } from './assets/js/api/index.js';
+// import { getAllItems } from './assets/js/api/index.js';
 
 export default {
-  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -83,14 +82,14 @@ export default {
     extend (config, ctx) {
     },
   },
-
-  generate: {
-    async routes () {
-      const res = await getRecords();
-
-      return res.map((media) => {
-        return '/media/' + media.id;
-      });
-    },
-  },
+  target: 'static',
+  // generate: {
+  //   routes () {
+  //     return getAllItems().then((res) => {
+  //       return res.map((media) => {
+  //         return '/media/' + media.ref['@ref'].id;
+  //       });
+  //     });
+  //   },
+  // },
 };

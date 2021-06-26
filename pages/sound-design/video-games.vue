@@ -31,7 +31,12 @@ export default {
   },
 
   async asyncData () {
-    const library = await getVideoGames();
+    let library;
+    try {
+      library = await getVideoGames();
+    } catch (error) {
+      throw new Error(error);
+    }
 
     return { library };
   },

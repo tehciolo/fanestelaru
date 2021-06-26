@@ -13,7 +13,7 @@
           Music
         </h2>
 
-        music
+        <div>music</div>
 
         <ul>
           <li>
@@ -33,12 +33,12 @@
           Sound design
         </h2>
 
-        sound design <!-- eslint-disable-line -->
+        <div>sound design</div>
 
         <ul>
           <li>
             <nuxt-link to="/sound-design/video-games">
-              video games <!-- eslint-disable-line -->
+              video games
             </nuxt-link>
           </li>
           <li>

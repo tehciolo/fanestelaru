@@ -27,7 +27,12 @@ export default {
   name: 'Commercials',
 
   async asyncData () {
-    const library = await getCommercials();
+    let library;
+    try {
+      library = await getCommercials();
+    } catch (error) {
+      throw new Error(error);
+    }
 
     return { library };
   },

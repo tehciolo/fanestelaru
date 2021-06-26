@@ -30,7 +30,12 @@ export default {
   },
 
   async asyncData () {
-    const library = await getRecords();
+    let library;
+    try {
+      library = await getRecords();
+    } catch (error) {
+      throw new Error(error);
+    }
     return { library };
   },
 
