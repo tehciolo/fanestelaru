@@ -67,6 +67,11 @@ export default {
           link: 'https://www.youtube.com/user/MrDirectDambla',
           class: 'youtube-with-circle',
         },
+        {
+          name: 'spotify',
+          link: 'https://open.spotify.com/artist/32rGJDzcofM452LSHUQlBI',
+          class: 'spotify-with-circle',
+        },
       ],
     };
   },
