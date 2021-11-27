@@ -1,56 +1,78 @@
 <template>
-  <section>
-    <b-field label="Name">
-      <b-input v-model="name"></b-input>
-    </b-field>
+  <section style="background-color: #ccc">
+    <BField label="Name">
+      <BInput v-model="name"></BInput>
+    </BField>
 
     <hr>
     <p class="title is-6">
       Date
     </p>
 
-    <b-field label="Year" grouped>
-      <b-input v-model="date.year" placeholder="Year" type="year"></b-input>
-    </b-field>
+    <BField label="Year" grouped>
+      <BInput v-model="date.year" placeholder="Year" type="number"></BInput>
+    </BField>
 
-    <b-field label="Month" grouped>
-      <b-input v-model="date.month" placeholder="Month" type="banana"></b-input>
-    </b-field>
-    <p class="control">
-      <b-button class="button is-primary">
-        Add
-      </b-button>
-    </p>
+    <BField label="Month" grouped>
+      <BSelect v-model="date.month" placeholder="Select a month">
+        <option
+          v-for="option in MONTHS"
+          :key="option"
+          :value="option"
+        >
+          {{ option }}
+        </option>
+      </BSelect>
+    </BField>
 
-    <b-field label="Sections">
-      <b-input v-model="sections"></b-input>
-    </b-field>
-    <p class="control">
-      <b-button class="button is-primary">
-        Add
-      </b-button>
-    </p>
+    <BField label="Sections">
+      <BSelect
+        v-model="sections"
+        multiple
+        :native-size="SECTIONS.length"
+      >
+        <option
+          v-for="option in SECTIONS"
+          :key="option"
+          :value="option"
+        >
+          {{ option }}
+        </option>
+      </BSelect>
+    </BField>
 
     <hr>
     <p class="title is-6">
       Sources
     </p>
-    <b-field label="Source" grouped>
-      <b-input v-model="source" placeholder="Source" type="source"></b-input>
-    </b-field>
+    <BField label="Platform" grouped>
+      <BInput v-model="source.platform" type="text"></BInput>
+    </BField>
+    <BField label="ID" grouped>
+      <BInput v-model="source.id" type="text"></BInput>
+    </BField>
+    <BField label="Slug" grouped>
+      <BInput v-model="source.slug" type="text"></BInput>
+    </BField>
+    <BField label="Type" grouped>
+      <BInput v-model="source.type" type="text"></BInput>
+    </BField>
+    <BField label="Start ID" grouped>
+      <BInput v-model="source.startId" type="text"></BInput>
+    </BField>
 
     <p class="control">
-      <b-button class="button is-primary">
+      <BButton class="button is-primary" @click="addSource">
         Add
-      </b-button>
+      </BButton>
     </p>
 
-    <b-table :data="sources" :columns="columns"></b-table>
+    <BTable :data="sources" :columns="columns"></BTable>
 
     <p class="control">
-      <b-button class="button is-success">
+      <BButton class="button is-success">
         Save
-      </b-button>
+      </BButton>
     </p>
   </section>
 </template>
@@ -60,23 +82,45 @@ export default {
   name: 'Library',
   data () {
     return {
-      name: '',
+      MONTHS: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
+      SECTIONS: [
+        'commercials',
+        'film',
+        'records',
+        'video-games',
+      ],
+      name: undefined,
       date: {
-        year: '',
-        month: '',
+        year: undefined,
+        month: undefined,
       },
-      sections: '',
-      source: '',
-      sources: [{
-        source: 'youtube',
-        id: 'PLqlKMTzU8q8ODB6_Q5h8BLdNNPh2TbCuD',
-        type: 'playlist',
-        startId: 'KhtSjjKt3QY',
-      }],
+      sections: [],
+      source: {
+        platform: undefined,
+        id: undefined,
+        slug: undefined,
+        type: undefined,
+        startId: undefined,
+
+      },
+      sources: [],
       columns: [
         {
-          field: 'source',
-          label: 'Source',
+          field: 'platform',
+          label: 'Platform',
         },
         {
           field: 'id',
@@ -96,6 +140,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    addSource () {
+      this.sources.push(this.source);
+    },
+    save () {
+
+    },
   },
 };
 </script>
