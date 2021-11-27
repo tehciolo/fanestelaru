@@ -1,7 +1,7 @@
 <template>
   <section style="background-color: #ccc">
     <BField label="Name">
-      <BInput v-model="name"></BInput>
+      <BInput v-model="form.name"></BInput>
     </BField>
 
     <hr>
@@ -10,11 +10,11 @@
     </p>
 
     <BField label="Year" grouped>
-      <BInput v-model="date.year" placeholder="Year" type="number"></BInput>
+      <BInput v-model="form.date.year" placeholder="Year" type="number"></BInput>
     </BField>
 
     <BField label="Month" grouped>
-      <BSelect v-model="date.month" placeholder="Select a month">
+      <BSelect v-model="form.date.month" placeholder="Select a month">
         <option
           v-for="option in MONTHS"
           :key="option"
@@ -27,7 +27,7 @@
 
     <BField label="Sections">
       <BSelect
-        v-model="sections"
+        v-model="form.sections"
         multiple
         :native-size="SECTIONS.length"
       >
@@ -67,10 +67,10 @@
       </BButton>
     </p>
 
-    <BTable :data="sources" :columns="columns"></BTable>
+    <BTable :data="form.sources" :columns="columns"></BTable>
 
     <p class="control">
-      <BButton class="button is-success">
+      <BButton class="button is-success" @click="save">
         Save
       </BButton>
     </p>
@@ -78,45 +78,57 @@
 </template>
 
 <script>
+import { createItem } from '@/assets/js/api/index.js';
+const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+const SECTIONS = [
+  'commercials',
+  'film',
+  'records',
+  'video-games',
+];
+
+function getFormInitialState () {
+  return {
+    name: undefined,
+    date: {
+      year: undefined,
+      month: undefined,
+    },
+    sections: [],
+    sources: [],
+  };
+}
+
+function getSourceInitialState () {
+  return {
+    platform: undefined,
+    id: undefined,
+    slug: undefined,
+    type: undefined,
+    startId: undefined,
+
+  };
+}
 export default {
   name: 'Library',
   data () {
     return {
-      MONTHS: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-      ],
-      SECTIONS: [
-        'commercials',
-        'film',
-        'records',
-        'video-games',
-      ],
-      name: undefined,
-      date: {
-        year: undefined,
-        month: undefined,
-      },
-      sections: [],
-      source: {
-        platform: undefined,
-        id: undefined,
-        slug: undefined,
-        type: undefined,
-        startId: undefined,
-
-      },
-      sources: [],
+      MONTHS,
+      SECTIONS,
+      source: getSourceInitialState(),
       columns: [
         {
           field: 'platform',
@@ -139,14 +151,20 @@ export default {
           label: 'Start ID',
         },
       ],
+      form: getFormInitialState(),
     };
   },
   methods: {
     addSource () {
-      this.sources.push(this.source);
+      this.form.sources.push(this.source);
+      this.source = getSourceInitialState();
     },
     save () {
-
+      const { date, name, sources, sections } = this.form;
+      return createItem({ date, name, sources, sections }).then((response) => {
+        console.log(response);
+        this.form = getFormInitialState();
+      });
     },
   },
 };
