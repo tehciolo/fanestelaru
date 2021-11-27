@@ -21,7 +21,7 @@ export const getItem = (id) => {
 
 export const createItem = (data) => {
   return http.post('/.netlify/functions/create-item', data).then((response) => {
-    return response.json();
+    return response.data;
   });
 };
 
