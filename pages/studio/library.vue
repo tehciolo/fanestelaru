@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { createItem } from '@/assets/js/api/index.js';
 const MONTHS = [
   'January',
@@ -154,6 +155,20 @@ export default {
       form: getFormInitialState(),
     };
   },
+  computed: {
+    ...mapGetters({
+      user: 'auth/user',
+    }),
+  },
+  created () {
+    if (process.browser) {
+      console.log(this.user);
+      if (!this.user) {
+        this.$router.push('/');
+        this.$toast.show('You\'ll need to login');
+      }
+    }
+  },
   methods: {
     addSource () {
       this.form.sources.push(this.source);
@@ -162,7 +177,6 @@ export default {
     save () {
       const { date, name, sources, sections } = this.form;
       return createItem({ date, name, sources, sections }).then((response) => {
-        console.log(response);
         this.form = getFormInitialState();
       });
     },
