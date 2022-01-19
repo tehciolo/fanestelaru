@@ -9,6 +9,17 @@
         contact
       </nuxt-link>
 
+      <button
+        class="buy-link"
+        @click.prevent="openLogin"
+      >
+        login
+      </button>
+
+      <nuxt-link to="/studio/library">
+        studio
+      </nuxt-link>
+
       <a
         href="https://fanestelaru.bandcamp.com/"
         class="buy-link"
@@ -41,6 +52,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'TheFooter',
 
@@ -74,6 +87,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    ...mapActions({
+      openLogin: 'auth/openLogin',
+    }),
   },
 };
 </script>

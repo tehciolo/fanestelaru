@@ -40,6 +40,7 @@ export default {
   */
   plugins: [
     { src: '~/plugins/particles', ssr: false },
+    { src: '~/plugins/netlify-identity-widget', mode: 'client' },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -57,6 +58,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
+    '@nuxtjs/toast',
     'nuxt-buefy',
   ],
   /*
@@ -72,6 +74,13 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  /* @nuxtjs/toast */
+  toast: {
+    position: 'bottom-center',
+    duration: 1000,
+    theme: 'bubble',
+    register: [],
   },
   /*
   ** Build configuration
