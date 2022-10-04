@@ -6,16 +6,21 @@ exports.handler = (event, context) => {
   const client = new faunadb.Client({
     secret: process.env.FAUNADB_SERVER_SECRET,
   });
+
   const id = getItemId(event.path);
+
   return client.query(q.Get(q.Ref(q.Collection('library'), id)))
     .then((response) => {
       return {
         statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(response),
       };
-    }).catch((error) => {
+    })
+    .catch((error) => {
       return {
         statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(error),
       };
     });
