@@ -8,9 +8,11 @@ const http = axios.create({
 });
 
 export const getAllItems = () => {
-  return http.get('/.netlify/functions/get-all-items').then((response) => {
-    return response.data;
-  });
+  return http
+    .get('/.netlify/functions/get-all-items')
+    .then((response) => {
+      return response;
+    });
 };
 
 export const getItem = (id) => {
@@ -38,7 +40,7 @@ export const deleteItem = (id) => {
 };
 
 export const getRecords = () => {
-  return getAllItems().then((items) => {
+  return getAllItems().then(({ data: items }) => {
     return items
       .map(item => ({
         ...item.data,
