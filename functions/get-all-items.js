@@ -16,12 +16,15 @@ exports.handler = (event, context) => {
       return client.query(getAllItemsDataQuery).then((ret) => {
         return {
           statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(ret),
         };
       });
-    }).catch((error) => {
+    })
+    .catch((error) => {
       return {
         statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(error),
       };
     });
