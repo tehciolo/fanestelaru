@@ -78,7 +78,7 @@ export default {
   /* @nuxtjs/toast */
   toast: {
     position: 'bottom-center',
-    duration: 1000,
+    duration: 2000,
     theme: 'bubble',
     register: [],
   },

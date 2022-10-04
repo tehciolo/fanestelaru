@@ -1,24 +1,13 @@
 <template>
   <div data-component="fs-footer">
     <footer class="fs-footer webfont">
-      <nuxt-link to="/events">
+      <NuxtLink to="/events">
         events
-      </nuxt-link>
+      </NuxtLink>
 
-      <nuxt-link to="/contact">
+      <NuxtLink to="/contact">
         contact
-      </nuxt-link>
-
-      <button
-        class="buy-link"
-        @click.prevent="openLogin"
-      >
-        login
-      </button>
-
-      <nuxt-link to="/studio/library">
-        studio
-      </nuxt-link>
+      </NuxtLink>
 
       <a
         href="https://fanestelaru.bandcamp.com/"
@@ -47,12 +36,34 @@
           </a>
         </li>
       </ul>
+
+      <span> | </span>
+
+      <button
+        v-if="user"
+        class="auth"
+        @click.prevent="logout"
+      >
+        logout
+      </button>
+
+      <button
+        v-else
+        class="auth"
+        @click.prevent="openLogin"
+      >
+        login
+      </button>
+
+      <NuxtLink to="/studio">
+        studio
+      </NuxtLink>
     </footer>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'TheFooter',
@@ -88,9 +99,15 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapGetters({
+      user: 'auth/user',
+    }),
+  },
   methods: {
     ...mapActions({
       openLogin: 'auth/openLogin',
+      logout: 'auth/logout',
     }),
   },
 };
@@ -164,6 +181,18 @@ export default {
 .buy-link:focus {
   animation: pulse 1s;
   box-shadow: 0 0 0 .8em var(--color-dark-fern);
+}
+
+.auth {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+}
+
+.auth:hover {
+  color: #363636;
 }
 
 @keyframes pulse {
