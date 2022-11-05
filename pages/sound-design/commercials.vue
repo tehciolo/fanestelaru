@@ -39,7 +39,7 @@ export default {
 
   methods: {
     getVideoSource (media) {
-      return media.sources.find(source => source.source === 'native').href;
+      return media.sources.find(source => source.platform === 'native').href;
     },
   },
 

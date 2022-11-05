@@ -37,13 +37,13 @@
               :href="getLink(source)"
               class="res-list__link"
               target="_blank"
-            >{{ source.source }}</a>
+            >{{ source.platform }}</a>
           </li>
         </ul>
       </div>
     </div>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-html="media.description"></p>
+    <p style="margin: 16px 0;" v-html="media.description"></p>
   </div>
 </template>
 
@@ -71,7 +71,7 @@ export default {
     getLink (source) {
       let link;
 
-      switch (source.source) {
+      switch (source.platform) {
         case 'bandcamp':
           link = `https://fanestelaru.bandcamp.com/album/${source.slug}`;
           break;
@@ -114,6 +114,7 @@ export default {
   font-weight: normal;
   font-size: 24px;
   margin-top: 0;
+  margin-bottom: 24px;
 }
 
 .album-object {
@@ -167,10 +168,12 @@ export default {
 .res-list__heading {
   color: #ccc;
   margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .res-list {
   padding-left: 1.2rem;
+  list-style-type: circle;
 }
 
 .res-list__link {

@@ -15,7 +15,7 @@
 
         <div>music</div>
 
-        <ul>
+        <ul class="section__nav">
           <li>
             <nuxt-link to="/music/video-games">
               video games
@@ -40,7 +40,7 @@
 
         <div>sound design</div>
 
-        <ul>
+        <ul class="section__nav">
           <li>
             <nuxt-link to="/sound-design/video-games">
               video games
@@ -154,5 +154,11 @@ export default {
     -0.09em -0.09em 0em var(--color-dark-fern),
     -0.1em -0.1em 0em var(--color-dark-fern),
     -0.11em -0.11em 0em var(--color-dark-fern);
+}
+
+/* Get back styles after reset coming from buefy */
+.section__nav {
+  list-style-type: circle;
+  margin-left: 15px;
 }
 </style>

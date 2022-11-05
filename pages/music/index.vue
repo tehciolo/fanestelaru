@@ -7,20 +7,29 @@
     <ul class="section__list webfont">
       <li class="section__item">
         <h2 class="screen-reader-text">
+          Video Games
+        </h2>
+
+        <nuxt-link to="/music/video-games">
+          video games
+        </nuxt-link>
+      </li>
+      <li class="section__item">
+        <h2 class="screen-reader-text">
+          Film
+        </h2>
+
+        <nuxt-link to="/music/film">
+          film
+        </nuxt-link>
+      </li>
+      <li class="section__item">
+        <h2 class="screen-reader-text">
           Records
         </h2>
 
         <nuxt-link to="/music/records">
           records
-        </nuxt-link>
-      </li>
-      <li class="section__item">
-        <h2 class="screen-reader-text">
-          Soundtracks
-        </h2>
-
-        <nuxt-link to="/music/soundtracks">
-          soundtracks
         </nuxt-link>
       </li>
     </ul>
@@ -38,8 +47,8 @@ export default {
       title: 'Music - FaneStelaru.com',
       meta: [
         { hid: 'title', name: 'title', content: 'Music' },
-        { hid: 'description', name: 'description', content: 'This is the landing page for everything music related. Find out more about FaneStelaru records and soundtracks.' },
-        { hid: 'keywords', name: 'keywords', content: 'music, records, soundtracks' },
+        { hid: 'description', name: 'description', content: 'This is the landing page for everything music related. Find out more about FaneStelaru\'s work with video games, film and records.' },
+        { hid: 'keywords', name: 'keywords', content: 'music, records, film, video games' },
       ],
     };
   },

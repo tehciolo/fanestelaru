@@ -15,12 +15,12 @@
         class="pill-list__item"
       >
         <button
-          :class="{ 'is-active': source.source === active }"
+          :class="{ 'is-active': source.platform === active }"
           class="pill-list__button"
           type="button"
-          @click="active = source.source"
+          @click="active = source.platform"
         >
-          {{ source.source }}
+          {{ source.platform }}
         </button>
       </li>
 
@@ -84,7 +84,7 @@ export default {
   },
 
   created () {
-    this.active = this.media.sources[0].source;
+    this.active = this.media.sources[0].platform;
   },
 
   head () {

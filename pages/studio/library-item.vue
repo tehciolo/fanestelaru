@@ -41,6 +41,10 @@
       </BSelect>
     </BField>
 
+    <BField label="Cover">
+      <BInput v-model="form.cover"></BInput>
+    </BField>
+
     <hr>
     <p class="title is-6">
       Sources
@@ -48,109 +52,55 @@
 
     <BButton
       type="is-primary is-light"
-      @click="addBandcamp"
+      @click="isBandcampModalActive = true"
     >
       Add Bandcamp
     </BButton>
 
-    <BModal
+    <BandcampSource
+      ref="bandcamp-source"
       v-model="isBandcampModalActive"
-      :width="640"
-      scroll="keep"
-    >
-      <div class="card">
-        <div class="card-content">
-          <div class="content">
-            <ol style="margin-top: 0;">
-              <li>Go to the album page on bandcamp</li>
-              <li>Click on share/embed (under the album cover)</li>
-              <li>Click on embed this album</li>
-              <li>Select the biggest style</li>
-              <li>Copy what shows up in the "Embed" field and paste below</li>
-            </ol>
-
-            <BField
-              :type="formValidation.isFormValid ? undefined : 'is-danger'"
-              :message="formValidation.isFormValid ? undefined : formValidation.error"
-            >
-              <BInput
-                v-model="source.raw"
-                type="textarea"
-                @input="checkSource"
-              ></BInput>
-            </BField>
-
-            <p class="control">
-              <BButton
-                class="button is-primary"
-                :disabled="!formValidation.isFormValid"
-                @click="addBandcampSource"
-              >
-                Add
-              </BButton>
-            </p>
-          </div>
-        </div>
-      </div>
-    </BModal>
+      @save-source="saveSource"
+    />
 
     <BButton
       type="is-primary is-light"
+      @click="isYoutubeModalActive = true"
     >
       Add Youtube
     </BButton>
 
+    <YoutubeSource
+      ref="native-source"
+      v-model="isYoutubeModalActive"
+      @save-source="saveSource"
+    />
+
     <BButton
       type="is-primary is-light"
+      @click="isSoundcloudModalActive = true"
     >
       Add Soundcloud
     </BButton>
 
+    <SoundcloudSource
+      ref="soundcloud-source"
+      v-model="isSoundcloudModalActive"
+      @save-source="saveSource"
+    />
+
     <BButton
       type="is-primary is-light"
+      @click="isNativeModalActive = true"
     >
       Add Native
     </BButton>
 
-    <BField label="Platform">
-      <BSelect
-        v-model="source.platform"
-        placeholder="Select a platform"
-      >
-        <option
-          v-for="platform in PLATFORMS"
-          :key="platform"
-          :value="platform"
-        >
-          {{ platform }}
-        </option>
-      </BSelect>
-    </BField>
-
-    <div>
-      <BField label="ID" grouped>
-        <BInput v-model="source.id" type="text"></BInput>
-      </BField>
-      <BField label="Slug" grouped>
-        <BInput v-model="source.slug" type="text"></BInput>
-      </BField>
-      <BField label="Type" grouped>
-        <BInput v-model="source.type" type="text"></BInput>
-      </BField>
-      <BField label="Start ID" grouped>
-        <BInput v-model="source.startId" type="text"></BInput>
-      </BField>
-    </div>
-
-    <p class="control">
-      <BButton
-        class="button is-primary"
-        :disabled="!formValidation.isFormValid"
-        @click="addSource"
-      >
-        Add
-      </BButton>
-    </p>
+    <NativeSource
+      ref="native-source"
+      v-model="isNativeModalActive"
+      @save-source="saveSource"
+    />
 
     <BTable :data="form.sources">
       <BTableColumn
@@ -168,11 +118,11 @@
         field="actions"
         label="Actions"
       >
-        {{ props.row.id }}
         <BButton
           type="is-primary"
           size="is-small"
           icon-left="pen"
+          @click="editSource(props.row.id)"
         >
           Edit
         </BButton>
@@ -187,16 +137,38 @@
       </BTableColumn>
     </BTable>
 
+    <BField label="Active">
+      <BSelect v-model="form.active">
+        <option :value="true">
+          true
+        </option>
+
+        <option :value="false">
+          false
+        </option>
+      </BSelect>
+    </BField>
+
     <p class="control">
       <BButton class="button is-success" @click="save">
         Save
       </BButton>
+
+      <NuxtLink to="/studio/library">
+        <BButton class="button is-light">
+          Cancel
+        </BButton>
+      </NuxtLink>
     </p>
   </section>
 </template>
 
 <script>
-import { createItem } from '@/assets/js/api/index.js';
+import { createItem, getItem, updateItem } from '@/assets/js/api/index.js';
+import BandcampSource from '~/components/BandcampSource.vue';
+import NativeSource from '~/components/NativeSource.vue';
+import YoutubeSource from '~/components/YoutubeSource.vue';
+import SoundcloudSource from '~/components/SoundcloudSource.vue';
 
 const MONTHS = [
   'January',
@@ -232,14 +204,22 @@ export default {
 
   middleware: 'auth',
 
+  components: {
+    BandcampSource,
+    NativeSource,
+    YoutubeSource,
+    SoundcloudSource,
+  },
+
   data () {
     return {
       isBandcampModalActive: false,
+      isNativeModalActive: false,
+      isYoutubeModalActive: false,
+      isSoundcloudModalActive: false,
       MONTHS,
       SECTIONS,
       PLATFORMS,
-      source: getSourceInitialState(),
-      helpers: getHelpersInitialState(),
       columns: [
         {
           field: 'platform',
@@ -258,88 +238,99 @@ export default {
           label: 'Type',
         },
         {
+          field: 'href',
+          label: 'Href',
+        },
+        {
           field: 'startId',
           label: 'Start ID',
         },
       ],
       form: getFormInitialState(),
-      formValidation: getFormValidationInitialState(),
     };
   },
 
+  mounted () {
+    if (this.$route.query?.id) {
+      this.editItem(this.$route.query?.id);
+    }
+  },
+
   methods: {
-    addSource () {
-      if (this.source.platform === 'bandcamp') {
-        this.form.sources.push({
-          ...this.source,
-          ...this.helpers.bandcamp,
-        });
+    saveSource (sourceToSave) {
+      const sourceExists = source => source.id === sourceToSave.id;
+
+      const index = this.form.sources.findIndex(sourceExists);
+
+      if (index === -1) {
+        this.form.sources.push(sourceToSave);
       } else {
-        this.form.sources.push(this.source);
+        this.form.sources.splice(index, 1, sourceToSave);
       }
-      this.source = getSourceInitialState();
     },
 
-    checkSource () {
-      this.resetFormValidation();
-      this.helpers = getHelpersInitialState();
+    editItem (id) {
+      return getItem(id).then((item) => {
+        this.form = {
+          ...getFormInitialState(),
+          ...item,
+        };
+        this.form.mode = 'edit';
+      });
+    },
 
-      const parser = new DOMParser();
-      const htmlDoc = parser.parseFromString(this.source.raw, 'text/html');
+    editSource (id) {
+      // edit according to platform (not always bandcamp)
+      const sourceToEdit = this.form.sources.find(source => source.id === id);
 
-      if (htmlDoc.body.firstChild !== htmlDoc.body.lastChild) {
-        this.invalidateForm('Expecting exactly ONE root element.');
-      }
+      switch (sourceToEdit.platform) {
+        case 'bandcamp':
+          this.isBandcampModalActive = true;
+          this.$refs['bandcamp-source'].editSource({ ...sourceToEdit });
+          break;
 
-      if (htmlDoc.body.firstChild?.tagName !== 'IFRAME') {
-        this.invalidateForm('Expecting root element to be an <iframe>.');
-      }
+        case 'native':
+          this.isNativeModalActive = true;
+          this.$refs['native-source'].editSource({ ...sourceToEdit });
+          break;
 
-      const srcAttr = htmlDoc.body.firstChild?.attributes.getNamedItem('src');
+        case 'youtube':
+          this.isYoutubeModalActive = true;
+          this.$refs['youtube-source'].editSource({ ...sourceToEdit });
+          break;
 
-      if (!srcAttr) {
-        this.invalidateForm('Expecting <iframe> to have a [src] attribute.');
-      }
-
-      try {
-        const albumId = (new URL(srcAttr.textContent)).pathname.split('/').find(part => part.startsWith('album'));
-
-        this.helpers.bandcamp.id = albumId.replace('album=', '');
-      } catch (_) {
-        this.invalidateForm('Expecting <iframe> [src] attribute to contain a valid URL.');
-      }
-
-      try {
-        const link = parser.parseFromString(htmlDoc.body.firstChild?.firstChild?.nodeValue, 'text/html');
-        const hrefAttr = link.body.firstChild?.attributes.getNamedItem('href');
-        const slug = (new URL(hrefAttr.textContent)).pathname.split('/').at(-1);
-
-        this.helpers.bandcamp.slug = slug;
-      } catch (_) {
-        this.invalidateForm('Something went wrong while parsing the album slug. Please check the embed code.');
+        case 'soundcloud':
+          this.isSoundcloudModalActive = true;
+          this.$refs['soundcloud-source'].editSource({ ...sourceToEdit });
+          break;
       }
     },
 
     save () {
       const { date, name, sources, sections } = this.form;
+      const id = this.$route.query?.id;
 
-      return createItem({
-        date,
-        name,
-        sources,
-        sections,
-      }).then((response) => {
-        this.form = getFormInitialState();
-      });
-    },
-
-    resetFormValidation () {
-      this.formValidation = getFormValidationInitialState();
-    },
-
-    invalidateForm (error) {
-      this.formValidation.isFormValid = false;
-      this.formValidation.error = error;
+      return this.form.mode === 'create'
+        ? createItem({
+          date,
+          name,
+          sources,
+          sections,
+        }).then((_) => {
+          this.$router.push({
+            path: '/studio/library',
+          });
+        })
+        : updateItem(id, {
+          date,
+          name,
+          sources,
+          sections,
+        }).then((_) => {
+          this.$router.push({
+            path: '/studio/library',
+          });
+        });
     },
 
     removeSourceById (id) {
@@ -359,55 +350,21 @@ export default {
         },
       });
     },
-
-    addBandcamp () {
-      this.isBandcampModalActive = true;
-      this.source.platform = 'bandcamp';
-    },
-
-    addBandcampSource () {
-      this.addSource();
-      this.isBandcampModalActive = false;
-    },
   },
 };
 
 function getFormInitialState () {
   return {
-    name: undefined,
+    mode: 'create',
+    name: null,
     date: {
-      year: undefined,
-      month: undefined,
+      year: null,
+      month: null,
     },
     sections: [],
     sources: [],
-  };
-}
-
-function getSourceInitialState () {
-  return {
-    platform: undefined,
-    id: undefined,
-    slug: undefined,
-    type: undefined,
-    startId: undefined,
-    raw: '',
-  };
-}
-
-function getFormValidationInitialState () {
-  return {
-    isFormValid: true,
-    error: null,
-  };
-}
-
-function getHelpersInitialState () {
-  return {
-    bandcamp: {
-      id: undefined,
-      slug: undefined,
-    },
+    cover: null,
+    active: false,
   };
 }
 </script>

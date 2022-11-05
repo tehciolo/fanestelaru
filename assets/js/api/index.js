@@ -28,15 +28,11 @@ export const createItem = (data) => {
 };
 
 export const updateItem = (id, data) => {
-  return http.put(`/.netlify/functions/update-item/${id}`, data).then((response) => {
-    return response.json();
-  });
+  return http.put(`/.netlify/functions/update-item/${id}`, data);
 };
 
 export const deleteItem = (id) => {
-  return http.delete(`/.netlify/functions/delete-item/${id}`).then((response) => {
-    return response.json();
-  });
+  return http.delete(`/.netlify/functions/delete-item/${id}`);
 };
 
 export const getRecords = () => {
