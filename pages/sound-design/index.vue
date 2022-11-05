@@ -48,7 +48,7 @@ export default {
       meta: [
         { hid: 'title', name: 'title', content: 'Sound design' },
         { hid: 'description', name: 'description', content: 'This is the landing page for everything sound design related. Find out more about FaneStelaru films, commercials and video games.' },
-        { hid: 'keywords', name: 'keywords', content: 'sound design, film, commercials, videogames' },
+        { hid: 'keywords', name: 'keywords', content: 'sound design, film, commercials, video games' },
       ],
     };
   },

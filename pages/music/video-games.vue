@@ -4,7 +4,7 @@
       Video Games
     </h1>
 
-    <p style="text-align: center;">
+    <p style="text-align: center; margin: 16px 0;">
       Coming soon&hellip;
     </p>
   </div>

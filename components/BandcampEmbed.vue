@@ -25,7 +25,7 @@ export default {
   computed: {
     source () {
       return this.media.sources.find((entry) => {
-        return entry.source === 'bandcamp';
+        return entry.platform === 'bandcamp';
       });
     },
 
