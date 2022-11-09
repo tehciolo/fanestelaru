@@ -61,9 +61,9 @@ export default {
 
   computed: {
     backgroundImage () {
-      if (!this.media.cover) { return ''; }
-
-      return `background-image: url(/img/covers/${this.media.cover})`;
+      return this.media.cover
+        ? `background-image: url(/img/covers/${this.media.cover})`
+        : 'background-image: url(/img/covers/na.png)';
     },
   },
 
