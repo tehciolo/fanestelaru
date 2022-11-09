@@ -47,25 +47,34 @@ export const getRecords = () => {
 };
 
 export const getVideoGames = () => {
-  return getAllItems().then((items) => {
+  return getAllItems().then(({ data: items }) => {
     return items
-      .map(item => item.data)
+      .map(item => ({
+        ...item.data,
+        id: item.ref['@ref'].id,
+      }))
       .filter(item => item.sections.includes('video-games'));
   });
 };
 
 export const getFilm = () => {
-  return getAllItems().then((items) => {
+  return getAllItems().then(({ data: items }) => {
     return items
-      .map(item => item.data)
+      .map(item => ({
+        ...item.data,
+        id: item.ref['@ref'].id,
+      }))
       .filter(item => item.sections.includes('film'));
   });
 };
 
 export const getCommercials = () => {
-  return getAllItems().then((items) => {
+  return getAllItems().then(({ data: items }) => {
     return items
-      .map(item => item.data)
+      .map(item => ({
+        ...item.data,
+        id: item.ref['@ref'].id,
+      }))
       .filter(item => item.sections.includes('commercials'));
   });
 };
