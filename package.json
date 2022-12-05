@@ -33,13 +33,15 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^2.12.2",
     "nuxt-buefy": "^0.4.4",
-    "particles.js": "^2.0.0"
+    "particles.js": "^2.0.0",
+    "sanctuary": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/runtime-corejs2": "^7.9.6",
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@types/sanctuary": "^3.1.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
