@@ -38,8 +38,6 @@
 
 <script>
 export default {
-  layout: 'landing',
-
   name: 'SoundDesign',
 
   head () {

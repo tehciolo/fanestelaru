@@ -1,5 +1,9 @@
 <template>
   <div>
+    <h1 class="title is-1">
+      Library
+    </h1>
+
     <BTable :data="library">
       <BTableColumn
         v-slot="props"
@@ -38,7 +42,9 @@
     <hr>
 
     <NuxtLink to="/studio/library-item">
-      Add item
+      <BButton size="is-primary">
+        Add item
+      </BButton>
     </NuxtLink>
   </div>
 </template>
@@ -48,6 +54,8 @@ import { deleteItem, getAllItems } from '@/assets/js/api/index.js';
 
 export default {
   name: 'Library',
+
+  layout: 'studio',
 
   middleware: 'auth',
 

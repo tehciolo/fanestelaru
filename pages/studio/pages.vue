@@ -1,5 +1,9 @@
 <template>
   <section>
+    <h1 class="title is-1">
+      Pages
+    </h1>
+
     <b-field label="Title">
       <b-input v-model="title"></b-input>
     </b-field>
@@ -39,6 +43,11 @@
 <script>
 export default {
   name: 'Pages',
+
+  layout: 'studio',
+
+  middleware: 'auth',
+
   data () {
     return {
       title: '',
