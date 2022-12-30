@@ -191,10 +191,6 @@ export default {
   cursor: pointer;
 }
 
-.auth:hover {
-  color: #363636;
-}
-
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 var(--hover); }
 }

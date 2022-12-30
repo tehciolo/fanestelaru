@@ -1,5 +1,9 @@
 <template>
-  <section style="background-color: #ccc">
+  <section>
+    <h1 class="title is-1">
+      {{ form.name }}
+    </h1>
+
     <BField label="Name">
       <BInput v-model="form.name"></BInput>
     </BField>
@@ -201,6 +205,8 @@ const PLATFORMS = [
 
 export default {
   name: 'LibraryItem',
+
+  layout: 'studio',
 
   middleware: 'auth',
 

@@ -9,11 +9,7 @@
 
     <ul class="section__list webfont">
       <li class="section__item">
-        <h2 class="screen-reader-text">
-          Music
-        </h2>
-
-        <div>music</div>
+        <h2>music</h2>
 
         <ul class="section__nav">
           <li>
@@ -34,11 +30,7 @@
         </ul>
       </li>
       <li class="section__item">
-        <h2 class="screen-reader-text">
-          Sound design
-        </h2>
-
-        <div>sound design</div>
+        <h2>sound design</h2>
 
         <ul class="section__nav">
           <li>
@@ -66,8 +58,6 @@
 import IndexLogo from '@/components/IndexLogo.vue';
 
 export default {
-  layout: 'landing',
-
   name: 'Index',
 
   components: {

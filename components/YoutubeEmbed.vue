@@ -63,6 +63,7 @@ export default {
     font-weight: normal;
     font-size: 24px;
     margin: 0 0 8px;
+    color: white;
   }
 
   .date {

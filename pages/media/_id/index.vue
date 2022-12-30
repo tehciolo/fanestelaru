@@ -105,12 +105,17 @@ export default {
   width: 540px;
   max-width: 100%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .title {
   font-weight: normal;
   font-size: 24px;
   margin: 0 0 8px;
+  color: white;
 }
 
 .date {
