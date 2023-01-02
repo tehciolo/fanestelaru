@@ -1,6 +1,12 @@
 <template>
   <div class="holy-grail">
     <header>
+      <NuxtLink to="/">
+        <BButton size="is-text">
+          Back to site
+        </BButton>
+      </NuxtLink>
+
       <NuxtLink to="/studio/library">
         <BButton size="is-light is-primary">
           Library
