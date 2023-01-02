@@ -4,13 +4,13 @@
       Library
     </h1>
 
-    <BTable :data="library">
+    <BTable :data="items">
       <BTableColumn
         v-slot="props"
         field="item"
         label="Item"
       >
-        {{ props.row.data.name }}
+        {{ props.row.name }}
       </BTableColumn>
 
       <BTableColumn
@@ -18,7 +18,7 @@
         field="actions"
         label="Actions"
       >
-        <NuxtLink :to="`/studio/library-item?id=${props.row.ref['@ref'].id}`">
+        <NuxtLink :to="`/studio/library-item?id=${props.row.id}`">
           <BButton
             type="is-primary"
             size="is-small"
@@ -32,7 +32,7 @@
           type="is-danger"
           size="is-small"
           icon-left="delete"
-          @click="deleteItem(props.row.ref['@ref'].id)"
+          @click="removeItem(props.row.id)"
         >
           Delete
         </BButton>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { deleteItem, getAllItems } from '@/assets/js/api/index.js';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Library',
@@ -59,31 +59,25 @@ export default {
 
   middleware: 'auth',
 
-  async asyncData () {
-    let library;
-    try {
-      library = (await getAllItems()).data;
-    } catch (error) {
-      throw new Error(error);
-    }
-    return { library };
+  asyncData ({ store }) {
+    return store.dispatch('fetchItems');
+  },
+
+  computed: {
+    ...mapState(['items']),
   },
 
   methods: {
-    editItem (id) {
+    ...mapActions(['deleteItem']),
 
-    },
-
-    deleteItem (id) {
+    removeItem (id) {
       this.$buefy.dialog.confirm({
         title: 'Deleting item',
         message: 'Are you sure you want to <b>delete</b> this item?',
         confirmText: 'Delete item',
         type: 'is-danger',
         onConfirm: () => {
-          deleteItem(id).then((_) => {
-            this.library = this.library.filter(item => item.ref['@ref'].id !== id);
-          });
+          this.deleteItem(id);
         },
       });
     },

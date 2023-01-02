@@ -168,7 +168,7 @@
 </template>
 
 <script>
-import { createItem, getItem, updateItem } from '@/assets/js/api/index.js';
+import { mapActions, mapGetters } from 'vuex';
 import BandcampSource from '~/components/BandcampSource.vue';
 import NativeSource from '~/components/NativeSource.vue';
 import YoutubeSource from '~/components/YoutubeSource.vue';
@@ -217,6 +217,10 @@ export default {
     SoundcloudSource,
   },
 
+  asyncData ({ store }) {
+    return store.dispatch('fetchItems');
+  },
+
   data () {
     return {
       isBandcampModalActive: false,
@@ -256,6 +260,10 @@ export default {
     };
   },
 
+  computed: {
+    ...mapGetters(['getItemById']),
+  },
+
   mounted () {
     if (this.$route.query?.id) {
       this.editItem(this.$route.query?.id);
@@ -263,6 +271,8 @@ export default {
   },
 
   methods: {
+    ...mapActions(['createItem', 'updateItem']),
+
     saveSource (sourceToSave) {
       const sourceExists = source => source.id === sourceToSave.id;
 
@@ -276,17 +286,14 @@ export default {
     },
 
     editItem (id) {
-      return getItem(id).then((item) => {
-        this.form = {
-          ...getFormInitialState(),
-          ...item,
-        };
-        this.form.mode = 'edit';
-      });
+      this.form = {
+        ...getFormInitialState(),
+        ...this.getItemById(id),
+      };
+      this.form.mode = 'edit';
     },
 
     editSource (id) {
-      // edit according to platform (not always bandcamp)
       const sourceToEdit = this.form.sources.find(source => source.id === id);
 
       switch (sourceToEdit.platform) {
@@ -317,7 +324,7 @@ export default {
       const id = this.$route.query?.id;
 
       return this.form.mode === 'create'
-        ? createItem({
+        ? this.createItem({
           date,
           name,
           sources,
@@ -327,11 +334,14 @@ export default {
             path: '/studio/library',
           });
         })
-        : updateItem(id, {
-          date,
-          name,
-          sources,
-          sections,
+        : this.updateItem({
+          id,
+          item: {
+            date,
+            name,
+            sources,
+            sections,
+          },
         }).then((_) => {
           this.$router.push({
             path: '/studio/library',

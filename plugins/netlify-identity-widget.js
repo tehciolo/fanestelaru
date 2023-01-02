@@ -1,6 +1,6 @@
 import netlifyIdentity from 'netlify-identity-widget';
 
-export default async (context, inject) => {
+export default (context, inject) => {
   inject('netlifyIdentity', netlifyIdentity);
-  await context.store.dispatch('auth/init', context);
+  return context.store.dispatch('auth/init', context);
 };
