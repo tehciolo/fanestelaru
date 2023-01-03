@@ -1,5 +1,3 @@
-// import { getAllItems } from './assets/js/api/index.js';
-
 export default {
   /*
   ** Headers of the page
@@ -93,13 +91,4 @@ export default {
     },
   },
   target: 'static',
-  // generate: {
-  //   routes () {
-  //     return getAllItems().then((res) => {
-  //       return res.map((media) => {
-  //         return '/media/' + media.ref['@ref'].id;
-  //       });
-  //     });
-  //   },
-  // },
 };

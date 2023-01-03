@@ -44,12 +44,7 @@
 import BandcampEmbed from '@/components/BandcampEmbed.vue';
 import SoundcloudEmbed from '@/components/SoundcloudEmbed.vue';
 import YoutubeEmbed from '@/components/YoutubeEmbed.vue';
-import { getItem } from '@/assets/js/api/index.js';
-
-const capitalize = (s) => {
-  if (typeof s !== 'string') { return ''; }
-  return s.charAt(0).toUpperCase() + s.slice(1);
-};
+import { capitalize } from '@/assets/js/utils/helpers.js';
 
 export default {
   name: 'MusicItemPage',
@@ -60,10 +55,12 @@ export default {
     YoutubeEmbed,
   },
 
-  async asyncData (context) {
-    const media = await getItem(context.params.id);
-
-    return { media };
+  asyncData ({ store, params }) {
+    return store
+      .dispatch('fetchItems')
+      .then(() => ({
+        media: store.getters.getItemById(params.id),
+      }));
   },
 
   data () {

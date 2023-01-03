@@ -6,7 +6,7 @@
 
     <ul class="video__list">
       <li
-        v-for="media in library"
+        v-for="media in commercials"
         :key="media.id"
         class="video__item"
       >
@@ -21,20 +21,17 @@
 </template>
 
 <script>
-import { getCommercials } from '@/assets/js/api';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Commercials',
 
-  async asyncData () {
-    let library;
-    try {
-      library = await getCommercials();
-    } catch (error) {
-      throw new Error(error);
-    }
+  asyncData ({ store }) {
+    return store.dispatch('fetchItems');
+  },
 
-    return { library };
+  computed: {
+    ...mapGetters(['commercials']),
   },
 
   methods: {

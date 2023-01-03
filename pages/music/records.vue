@@ -6,7 +6,7 @@
 
     <ul class="music__list">
       <li
-        v-for="media in library"
+        v-for="media in records"
         :key="media.id"
         class="music__item"
       >
@@ -19,8 +19,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import MusicItem from '@/components/MusicItem';
-import { getRecords } from '@/assets/js/api/index.js';
 
 export default {
   name: 'Records',
@@ -29,14 +29,12 @@ export default {
     MusicItem,
   },
 
-  async asyncData () {
-    let library;
-    try {
-      library = await getRecords();
-    } catch (error) {
-      throw new Error(error);
-    }
-    return { library };
+  asyncData ({ store }) {
+    return store.dispatch('fetchItems');
+  },
+
+  computed: {
+    ...mapGetters(['records']),
   },
 
   head () {

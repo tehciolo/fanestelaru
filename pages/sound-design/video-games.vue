@@ -6,7 +6,7 @@
 
     <ul class="video__list">
       <li
-        v-for="media in library"
+        v-for="media in videoGames"
         :key="media.id"
         class="video__item"
       >
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { getVideoGames } from '@/assets/js/api';
+import { mapGetters } from 'vuex';
 import VideoItem from '@/components/VideoItem';
 
 export default {
@@ -30,15 +30,12 @@ export default {
     VideoItem,
   },
 
-  async asyncData () {
-    let library;
-    try {
-      library = await getVideoGames();
-    } catch (error) {
-      throw new Error(error);
-    }
+  asyncData ({ store }) {
+    return store.dispatch('fetchItems');
+  },
 
-    return { library };
+  computed: {
+    ...mapGetters(['videoGames']),
   },
 
   head () {

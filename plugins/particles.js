@@ -18,6 +18,7 @@ export default ({ app }) => {
   });
 
   app.router.afterEach((to, from) => {
+    if (to.path.startsWith('/studio')) { return; }
     particlesJS.load('particles', '/particles.json') // eslint-disable-line
   });
 };
