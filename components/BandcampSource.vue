@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { Left, Right, pipe, chain, either, concat } from 'sanctuary';
+
 export default {
   name: 'BandcampSource',
 
@@ -84,40 +86,17 @@ export default {
     checkSource () {
       this.resetFormValidation();
 
-      const parser = new DOMParser();
-      const htmlDoc = parser.parseFromString(this.rawSource, 'text/html');
+      const result = pipe([
+        parseHTMLFromString,
+        chain(checkRoot),
+        chain(checkSrcAttribute),
+        chain(getSourceId),
+        chain(getSourceSlug),
+      ])(this.rawSource);
 
-      if (htmlDoc.body.firstChild !== htmlDoc.body.lastChild) {
-        this.invalidateForm('Expecting exactly ONE root element.');
-      }
-
-      if (htmlDoc.body.firstChild?.tagName !== 'IFRAME') {
-        this.invalidateForm('Expecting root element to be an <iframe>.');
-      }
-
-      const srcAttr = htmlDoc.body.firstChild?.attributes.getNamedItem('src');
-
-      if (!srcAttr) {
-        this.invalidateForm('Expecting <iframe> to have a [src] attribute.');
-      }
-
-      try {
-        const albumId = (new URL(srcAttr.textContent)).pathname.split('/').find(part => part.startsWith('album'));
-
-        this.source.id = albumId.replace('album=', '');
-      } catch (_) {
-        this.invalidateForm('Expecting <iframe> [src] attribute to contain a valid URL.');
-      }
-
-      try {
-        const link = parser.parseFromString(htmlDoc.body.firstChild?.firstChild?.nodeValue, 'text/html');
-        const hrefAttr = link.body.firstChild?.attributes.getNamedItem('href');
-        const slug = (new URL(hrefAttr.textContent)).pathname.split('/').at(-1);
-
-        this.source.slug = slug;
-      } catch (_) {
-        this.invalidateForm('Something went wrong while parsing the album slug. Please check the embed code.');
-      }
+      either(this.invalidateForm)((result) => {
+        this.source = concat(this.source)(result);
+      })(result);
     },
     saveSource () {
       this.source.platform = 'bandcamp';
@@ -162,5 +141,61 @@ function getFormValidationInitialState () {
     isFormValid: true,
     error: null,
   };
+}
+
+function parseHTMLFromString (input) {
+  const parser = new DOMParser();
+  try {
+    const { body } = parser.parseFromString(input, 'text/html');
+
+    return Right(body);
+  } catch (error) {
+    return Left(error);
+  }
+}
+
+function checkRoot (body) {
+  if (body.firstChild !== body.lastChild) {
+    return Left('Expecting exactly ONE root element.');
+  }
+
+  if (body.firstChild?.tagName !== 'IFRAME') {
+    return Left('Expecting root element to be an <iframe>.');
+  }
+
+  return Right(body);
+}
+
+function checkSrcAttribute (body) {
+  const srcAttr = body.firstChild?.attributes.getNamedItem('src');
+
+  if (!srcAttr) {
+    return Left('Expecting <iframe> to have a [src] attribute.');
+  }
+  return Right(body);
+}
+
+function getSourceId (body) {
+  try {
+    const srcAttr = body.firstChild?.attributes.getNamedItem('src').textContent;
+    const albumId = (new URL(srcAttr)).pathname.split('/').find(part => part.startsWith('album')).replace('album=', '');
+
+    return Right([body, { id: albumId }]);
+  } catch (_) {
+    return Left('Expecting <iframe> [src] attribute to contain a valid URL.');
+  }
+}
+
+function getSourceSlug ([body, result]) {
+  const parser = new DOMParser();
+  try {
+    const link = parser.parseFromString(body.firstChild?.firstChild?.nodeValue, 'text/html');
+    const hrefAttr = link.body.firstChild?.attributes.getNamedItem('href');
+    const slug = (new URL(hrefAttr.textContent)).pathname.split('/').at(-1);
+
+    return Right({ ...result, slug });
+  } catch (_) {
+    return Left('Something went wrong while parsing the album slug. Please check the embed code.');
+  }
 }
 </script>
