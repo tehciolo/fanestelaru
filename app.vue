@@ -1,5 +1,59 @@
 <template>
-  <NuxtLayout>
-    some text
+  <NuxtLayout >
+    <NuxtPage />
   </NuxtLayout>
 </template>
+
+<style>
+/* https://github.com/tehciolo/fanestelaru/issues/11 */
+:root {
+    --color-cod-gray: rgb(15, 15, 15);
+    /* triadic color scheme */
+    --color-deep-cove: rgb(7, 10, 58);
+    /* primary color */
+    --color-dark-fern: rgb(10, 58, 7);
+    --color-aubergine: rgb(58, 7, 10);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+html {
+    background-image: linear-gradient(to bottom, var(--color-cod-gray) 0%, var(--color-deep-cove) 100%);
+    overflow-y: scroll;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+.webfont {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal;
+}
+</style>
