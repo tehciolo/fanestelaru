@@ -1,0 +1,54 @@
+{
+  "fullScreen": {
+    "enable": true
+  },
+  "particles": {
+    "color": {
+      "value": "#dedede"
+    },
+    "shape": {
+      "type": "star",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      }
+    },
+    "opacity": {
+      "value": 0.7,
+      "random": false,
+      "anim": {
+        "enable": false
+      }
+    },
+    "size": {
+      "value": {
+        "min": 0.1,
+        "max": 1.2
+      },
+      "random": true,
+      "anim": {
+        "enable": false
+      }
+    },
+    "move": {
+      "enable": true,
+      "speed": 0.5,
+      "random": false,
+      "straight": false,
+      "bounce": false,
+      "attract": {
+        "enable": false
+      }
+    },
+    "number": {
+      "value": 200,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    }
+  }
+}

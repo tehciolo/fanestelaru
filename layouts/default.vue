@@ -1,6 +1,6 @@
 <template>
   <div class="holy-grail">
-    <NuxtParticles id="tsparticles" :options="particleOptions" @load="onLoad" style="display: contents;" />
+    <NuxtParticles id="tsparticles" url="/particle-options.json" @load="onLoad" style="display: contents;" />
     <TheHeader />
     <main>
       <slot />
@@ -10,60 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-const particleOptions = {
-  fullScreen: { enable: true },
-  particles: {
-    color: { value: "#dedede" },
-    shape: {
-      type: "star",
-      stroke: {
-        width: 0,
-        color: "#000000"
-      },
-      polygon: {
-        nb_sides: 5
-      },
-    },
-    opacity: {
-      value: 0.7,
-      random: false,
-      anim: {
-        enable: false,
-      }
-    },
-    size: {
-      value: { min: 0.1, max: 1.2 },
-      random: true,
-      anim: {
-        enable: false,
-      }
-    },
-    line_linked: {
-      enable: false,
-    },
-    move: {
-      enable: true,
-      speed: 0.5,
-      direction: "none",
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false,
-      }
-    },
-    number: {
-      value: 200,
-      density: {
-        enable: true,
-        value_area: 800
-      }
-    },
-  },
-};
-
-const onLoad = (container: any) => container.play();
+const onLoad = (container: { play: () => void }) => container.play();
 </script>
 
 <style scoped>
